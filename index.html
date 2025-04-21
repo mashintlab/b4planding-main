@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BID4PENNY - Blockchain Auction Platform</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.bid4penny.com//img/fav-icon.png" alt="fav icon" />
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
@@ -269,7 +270,7 @@
         <a href="#" class="text-2xl font-['Pacifico'] text-primary"
           ><img src="./images/logo.png"/></a
         >
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav class="hidden lg:flex items-center space-x-8" style="margin: 0 20px;">
           <a
             href="#how-it-works"
             class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors"
@@ -298,12 +299,12 @@
         </nav>
         <div class="flex items-center space-x-4">
           <button
-            class="hidden md:block px-6 py-2 bg-white dark:bg-gray-800 text-primary border border-primary hover:bg-gray-50 dark:hover:bg-gray-700 !rounded-button font-medium transition-colors whitespace-nowrap"
+            class="hidden lg:block px-6 py-2 bg-white dark:bg-gray-800 text-primary border border-primary hover:bg-gray-50 dark:hover:bg-gray-700 !rounded-button font-medium transition-colors whitespace-nowrap"
           >
             Sign In
           </button>
           <button
-            class="px-6 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap"
+            class="hidden lg:block px-6 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap"
           >
             Connect Wallet
           </button>
@@ -314,7 +315,7 @@
             <i class="ri-sun-line dark:ri-moon-line"></i>
           </button>
           <button
-            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 dark:text-gray-300"
+            class="lg:hidden w-10 h-10 flex items-center justify-center text-gray-700 dark:text-gray-300"
             id="mobile-menu-button"
           >
             <i class="ri-menu-line ri-lg"></i>
@@ -323,7 +324,7 @@
       </div>
       <!-- Mobile Navigation Menu -->
       <div
-        class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
+        class="lg:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
         id="mobile-menu"
       >
         <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
@@ -356,6 +357,12 @@
             class="w-full px-6 py-2 bg-white dark:bg-gray-800 text-primary border border-primary hover:bg-gray-50 dark:hover:bg-gray-700 !rounded-button font-medium transition-colors whitespace-nowrap mt-4"
           >
             Sign In
+          </button>
+
+          <button
+            class="w-full px-6 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap"
+          >
+            Connect Wallet
           </button>
         </nav>
       </div>
@@ -748,6 +755,93 @@
         </div>
       </div>
     </section>
+    <!-- Categories & Slideshow -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+  <div class="text-center mb-16">
+  <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Product Categories</h2>
+  <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+  Browse our extensive collection of premium products across various categories
+  </p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+  <!-- Category 1 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-apple-fill ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Apple</span>
+  </button>
+  <!-- Category 2 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-coin-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Bid Packs</span>
+  </button>
+  <!-- Category 3 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-gamepad-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Console & Videogame</span>
+  </button>
+  <!-- Category 4 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-bitcoin-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Crypto & Bitcoin</span>
+  </button>
+  <!-- Category 5 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-computer-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Electronic & Computer</span>
+  </button>
+  <!-- Category 6 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Fitness</span>
+  </button>
+  <!-- Category 7 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-device-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Gadgets</span>
+  </button>
+  <!-- Category 8 -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-plant-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Garden & Tools</span>
+  </button>
+  </div>
+  <!-- Slideshow Container -->
+  <div class="relative bg-white rounded-xl shadow-lg overflow-hidden">
+  <div class="aspect-w-16 aspect-h-9">
+  <div id="slideshow" class="relative w-full h-[600px] overflow-hidden">
+  <!-- Slides will be dynamically inserted here -->
+  </div>
+  </div>
+  <!-- Navigation Arrows -->
+  <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
+  <i class="ri-arrow-left-s-line ri-2x text-gray-700"></i>
+  </button>
+  <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
+  <i class="ri-arrow-right-s-line ri-2x text-gray-700"></i>
+  </button>
+  <!-- Slide Indicators -->
+  <div id="slideIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+  </div>
+  </div>
+  </div>
+  </section>
     <!-- Live Auctions -->
     <section id="auctions" class="py-20 bg-white">
       <div class="container mx-auto px-4">
@@ -1846,6 +1940,184 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+
+// Category slideshow functionality
+const categoryImages = {
+apple: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20iPhone%2015%20Pro%20Max%20in%20titanium%20finish%20against%20clean%20white%20background%2C%20showing%20premium%20design%20and%20camera%20system&width=1280&height=720&seq=10&orientation=landscape",
+title: "iPhone 15 Pro Max"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20MacBook%20Air%20M2%20in%20space%20gray%2C%20displaying%20sleek%20design%20and%20retina%20display%20against%20white%20background&width=1280&height=720&seq=11&orientation=landscape",
+title: "MacBook Air M2"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Apple%20Watch%20Series%209%20in%20stainless%20steel%20case%20with%20sport%20band%20against%20white%20background&width=1280&height=720&seq=12&orientation=landscape",
+title: "Apple Watch Series 9"
+}
+],
+"bid-packs": [
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20premium%20bid%20pack%20tokens%20with%20golden%20glow%20effect%20against%20dark%20background&width=1280&height=720&seq=13&orientation=landscape",
+title: "Premium Bid Pack"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20starter%20bid%20pack%20bundle%20with%20special%20offer%20badge%20against%20gradient%20background&width=1280&height=720&seq=14&orientation=landscape",
+title: "Starter Bid Pack"
+}
+],
+console: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20PlayStation%205%20with%20DualSense%20controller%20against%20clean%20studio%20background&width=1280&height=720&seq=15&orientation=landscape",
+title: "PlayStation 5"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Xbox%20Series%20X%20with%20wireless%20controller%20against%20minimalist%20background&width=1280&height=720&seq=16&orientation=landscape",
+title: "Xbox Series X"
+}
+],
+crypto: [
+{
+url: "https://readdy.ai/api/search-image?query=3D%20rendering%20of%20golden%20Bitcoin%20coin%20with%20digital%20network%20effect%20against%20dark%20background&width=1280&height=720&seq=17&orientation=landscape",
+title: "Bitcoin"
+},
+{
+url: "https://readdy.ai/api/search-image?query=3D%20illustration%20of%20cryptocurrency%20hardware%20wallet%20with%20security%20features%20highlighted%20against%20tech%20background&width=1280&height=720&seq=18&orientation=landscape",
+title: "Hardware Wallet"
+}
+],
+electronic: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20high-end%20gaming%20laptop%20with%20RGB%20keyboard%20against%20dark%20background&width=1280&height=720&seq=19&orientation=landscape",
+title: "Gaming Laptop"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%204K%20curved%20gaming%20monitor%20with%20minimal%20bezels%20against%20studio%20background&width=1280&height=720&seq=20&orientation=landscape",
+title: "4K Monitor"
+}
+],
+fitness: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20fitness%20watch%20with%20heart%20rate%20monitoring%20display%20against%20light%20background&width=1280&height=720&seq=21&orientation=landscape",
+title: "Smart Fitness Watch"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20premium%20wireless%20earbuds%20with%20charging%20case%20against%20minimal%20background&width=1280&height=720&seq=22&orientation=landscape",
+title: "Wireless Earbuds"
+}
+],
+gadgets: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20drone%20with%204K%20camera%20against%20cloudy%20sky%20background&width=1280&height=720&seq=23&orientation=landscape",
+title: "4K Drone"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20VR%20headset%20with%20controllers%20against%20futuristic%20background&width=1280&height=720&seq=24&orientation=landscape",
+title: "VR Headset"
+}
+],
+garden: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20cordless%20electric%20lawn%20mower%20against%20garden%20background&width=1280&height=720&seq=25&orientation=landscape",
+title: "Electric Lawn Mower"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20garden%20watering%20system%20with%20mobile%20app%20control%20against%20garden%20background&width=1280&height=720&seq=26&orientation=landscape",
+title: "Smart Watering System"
+}
+]
+};
+let currentCategory = 'apple';
+let currentSlideIndex = 0;
+let slideInterval;
+function createSlideElement(imageData) {
+const slide = document.createElement('div');
+slide.className = 'absolute inset-0 transition-opacity duration-500 opacity-0';
+slide.innerHTML = `
+<img src="${imageData.url}" alt="${imageData.title}" class="w-full h-full object-cover">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+<h3 class="text-white text-2xl font-semibold">${imageData.title}</h3>
+</div>
+`;
+return slide;
+}
+function updateSlideshow(category) {
+const slideshow = document.getElementById('slideshow');
+const indicators = document.getElementById('slideIndicators');
+currentCategory = category;
+currentSlideIndex = 0;
+// Clear existing slides and indicators
+slideshow.innerHTML = '';
+indicators.innerHTML = '';
+// Create new slides and indicators
+categoryImages[category].forEach((imageData, index) => {
+const slide = createSlideElement(imageData);
+if (index === 0) slide.classList.remove('opacity-0');
+slideshow.appendChild(slide);
+const indicator = document.createElement('button');
+indicator.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/50'}`;
+indicator.onclick = () => showSlide(index);
+indicators.appendChild(indicator);
+});
+// Reset interval
+if (slideInterval) clearInterval(slideInterval);
+startSlideshow();
+}
+function showSlide(index) {
+const slides = document.getElementById('slideshow').children;
+const indicators = document.getElementById('slideIndicators').children;
+// Hide current slide
+slides[currentSlideIndex].classList.add('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white', 'bg-white/50');
+// Show new slide
+currentSlideIndex = index;
+slides[currentSlideIndex].classList.remove('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white/50', 'bg-white');
+}
+function nextSlide() {
+const nextIndex = (currentSlideIndex + 1) % categoryImages[currentCategory].length;
+showSlide(nextIndex);
+}
+function prevSlide() {
+const prevIndex = (currentSlideIndex - 1 + categoryImages[currentCategory].length) % categoryImages[currentCategory].length;
+showSlide(prevIndex);
+}
+function startSlideshow() {
+slideInterval = setInterval(nextSlide, 5000);
+}
+// Initialize slideshow
+updateSlideshow('apple');
+// Add event listeners
+document.querySelectorAll('.category-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+// Remove active state from all buttons
+document.querySelectorAll('.category-btn').forEach(b => {
+b.classList.remove('border-primary');
+b.classList.add('border-gray-100');
+});
+// Add active state to clicked button
+e.currentTarget.classList.remove('border-gray-100');
+e.currentTarget.classList.add('border-primary');
+updateSlideshow(e.currentTarget.dataset.category);
+});
+});
+document.getElementById('nextSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+nextSlide();
+startSlideshow();
+});
+document.getElementById('prevSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+prevSlide();
+startSlideshow();
+});
+// Add active state to initial category
+document.querySelector('[data-category="apple"]').classList.add('border-primary');
+document.querySelector('[data-category="apple"]').classList.remove('border-gray-100');
+
+
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const mobileMenu = document.getElementById("mobile-menu");
