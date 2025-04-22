@@ -41,7 +41,18 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+
     <style>
+      html {
+  scroll-behavior: smooth;
+}
+
       :where([class^="ri-"])::before { content: "\f3c2"; }
       body {
       font-family: 'Inter', sans-serif;
@@ -257,6 +268,17 @@
       box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
       }
       }
+      .faqitem{
+        height: 80px;
+        transition: height 0.3s ease-in;
+      }
+
+      .faqitem.show{
+        height: 170px;
+       
+      }
+
+
     </style>
   </head>
   <body class="bg-white">
@@ -282,9 +304,9 @@
             >Features</a
           >
           <a
-            href="#auctions"
+            href="#category"
             class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors"
-            >Live Auctions</a
+            >Categories</a
           >
           <a
             href="#token"
@@ -428,11 +450,11 @@
       <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
         <div class="max-w-2xl">
           <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate__animated animate__fadeInLeft"
           >
           Bid Smart, Win Big, Pay Less — The Future of Gamefied Auctions is Here
           </h1>
-          <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+          <p class="text-xl text-gray-200 mb-8 leading-relaxed animate__animated animate__fadeInLeft">
             Bid4Penny is a crypto-backed auction platform where you can win real-world products, gift cards, and more at jaw-droppingly low prices. Buy BID credits using Bid4Penny native token $B4P.  Use BID credits to bid, outsmart the competition, and score amazing deals — all on-chain, fair, and transparent.
 
 
@@ -440,12 +462,12 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <button
-              class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold !rounded-button whitespace-nowrap"
+              class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold !rounded-button whitespace-nowrap animate__animated animate__fadeInUp"
             >
               <a href="https://demo.bid4penny.com/" target="_blank">Get Started</a>
             </button>
             <button
-              class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold !rounded-button backdrop-blur-sm whitespace-nowrap"
+              class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold !rounded-button backdrop-blur-sm whitespace-nowrap animate__animated animate__fadeInRight"
             >
               <span class="flex items-center justify-center gap-2">
                 <a href="https://docs.google.com/document/d/1IZyUI3FOJT_8XdfBOA0paWoV4AmVmfblv1NUM16NUXU/edit?usp=sharing" target="_blank"><i class="ri-book-read-line"></i> Read Whitepaper </a>
@@ -778,56 +800,56 @@
   <!-- Category 1 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-apple-fill ri-2x text-gray-700"></i>
+  <i class="ri-apple-fill ri-2x"></i>
   </div>
   <span class="font-medium text-gray-900">Apple</span>
   </button>
   <!-- Category 2 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-coin-line ri-2x text-gray-700"></i>
+  <i class="ri-coin-line ri-2x"></i>
   </div>
   <span class="font-medium text-gray-900">Bid Packs</span>
   </button>
   <!-- Category 3 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-gamepad-line ri-2x text-gray-700"></i>
+  <i class="ri-gamepad-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Console & Videogame</span>
   </button>
   <!-- Category 4 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-bitcoin-line ri-2x text-gray-700"></i>
+  <i class="ri-bitcoin-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Crypto & Bitcoin</span>
   </button>
   <!-- Category 5 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-computer-line ri-2x text-gray-700"></i>
+  <i class="ri-computer-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Electronic & Computer</span>
   </button>
   <!-- Category 6 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
+  <i class="ri-heart-pulse-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Fitness</span>
   </button>
   <!-- Category 7 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-device-line ri-2x text-gray-700"></i>
+  <i class="ri-device-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Gadgets</span>
   </button>
   <!-- Category 8 -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-plant-line ri-2x text-gray-700"></i>
+  <i class="ri-plant-line ri-2x "></i>
   </div>
   <span class="font-medium text-gray-900">Garden & Tools</span>
   </button>
@@ -1452,7 +1474,7 @@
           <div class="space-y-6">
             <!-- FAQ Item 1 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100 "
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1462,18 +1484,18 @@
                   How do BID4PENNY auctions work?
                 </h3>
                 <i
-                  class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"
+                  class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon transition-transform duration-300 ease-in-out"
                 ></i>
               </button>
-              <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+              <div class="faq-content hidden mt-4 ">
+                <p class="text-gray-600 animate__animated">
                   Users buy BIDs using crypto or fiat, then join live auctions. Each bid adds €0.01 to the price and resets a 15-second timer. Last bidder when timer hits zero wins the item.
                 </p>
               </div>
             </div>
             <!-- FAQ Item 2 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100"
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1487,14 +1509,14 @@
                 ></i>
               </button>
               <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+                <p class="text-gray-600 animate__animated">
                   B4P is the native token used to buy BIDs, stake for rewards, vote on platform governance, access perks, and redeem auction wins.
                 </p>
               </div>
             </div>
             <!-- FAQ Item 3 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100"
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1508,14 +1530,14 @@
                 ></i>
               </button>
               <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+                <p class="text-gray-600 animate__animated">
                   Create an account, connect your Web3 wallet (or use traditional login), deposit crypto or fiat, purchase BIDs, and start bidding.
                 </p>
               </div>
             </div>
             <!-- FAQ Item 4 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100"
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1529,14 +1551,14 @@
                 ></i>
               </button>
               <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+                <p class="text-gray-600 animate__animated">
                   It’s gamified, blockchain-powered, transparent, and offers token rewards. It ensures fairness through smart contracts and real-time leaderboards.
                 </p>
               </div>
             </div>
             <!-- FAQ Item 5 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100"
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1550,7 +1572,7 @@
                 ></i>
               </button>
               <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+                <p class="text-gray-600 animate__animated">
                   You can either get the item delivered (in the EU) or redeem it for BIDs or B4P tokens.
                 </p>
               </div>
@@ -1558,7 +1580,7 @@
 
             <!-- FAQ Item 6 -->
             <div
-              class="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+              class="faqitem bg-white rounded-lg p-6 shadow-md border border-gray-100"
             >
               <button
                 class="flex justify-between items-center w-full text-left"
@@ -1572,7 +1594,7 @@
                 ></i>
               </button>
               <div class="faq-content hidden mt-4">
-                <p class="text-gray-600">
+                <p class="text-gray-600 animate__animated">
                   You get 80% of your used BIDs back, plus loyalty points and bonus BIDs for future participation—making every bid valuable.
                 </p>
               </div>
@@ -1583,7 +1605,8 @@
     </section>
     <!-- CTA Section -->
     <section
-      class="py-20 bg-gradient-to-r from-primary/90 to-secondary/90 text-white"
+      class="py-20 text-white"
+      style="background-image: linear-gradient(-90deg, #2fd5a5 , #097df8);"
     >
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">
@@ -2060,16 +2083,29 @@ document.querySelector('[data-category="apple"]').classList.remove('border-gray-
         });
         // FAQ toggle
         window.toggleFaq = function (element) {
+
+
           const content = element.nextElementSibling;
+          const parent = element.parentElement;
+
           const icon = element.querySelector(".faq-icon");
+          const para = content.children[0];
+          console.log(content.children[0]);
           if (content.classList.contains("hidden")) {
             content.classList.remove("hidden");
             icon.classList.remove("ri-arrow-down-s-line");
             icon.classList.add("ri-arrow-up-s-line");
+            parent.classList.add("show");
+         
+            para.classList.add("animate__fadeIn");
+
           } else {
             content.classList.add("hidden");
             icon.classList.remove("ri-arrow-up-s-line");
             icon.classList.add("ri-arrow-down-s-line");
+            parent.classList.remove("show");
+            
+            para.classList.remove("animate__fadeIn");
           }
         };
         // Staking slider
