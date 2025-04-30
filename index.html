@@ -751,26 +751,48 @@ section {
           </p>
         </div>
     
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           <!-- repeat this pattern for each feature-card -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-shield-check-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+                <!-- Outer Dollar‐Circle -->
+                <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="4"/>
+              
+                <!-- Dollar Sign -->
+                <text x="32" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="currentColor">$</text>
+              
+                <!-- Penny Coins -->
+                <g fill="currentColor" stroke="none">
+                  <ellipse cx="20" cy="42" rx="6" ry="4"/>
+                  <ellipse cx="14" cy="36" rx="4" ry="3"/>
+                </g>
+              
+                <!-- Gamification “Pixels” -->
+                <g fill="currentColor">
+                  <rect x="44" y="14" width="4" height="4"/>
+                  <rect x="50" y="14" width="4" height="4"/>
+                  <rect x="44" y="20" width="4" height="4"/>
+                  <rect x="50" y="20" width="4" height="4"/>
+                </g>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
-              Blockchain Transparency
+              Gamified Penny Auction Model
+
             </h3>
             <!-- DESCRIPTION: truncated by default -->
             <p
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              All transactions (bids, rewards, payments) are recorded on-chain, ensuring tamper-proof transparency and security through smart contracts.
+            Bid4Penny introduces a fun, competitive, and low-cost bidding system where users can place incremental bids (worth just pennies) using the platform point BID and native B4P token. Every bid increases the product price slightly(+0.01$) and extends the auction timer (12s), allowing others to jump in. This creates excitement, strategy, and a true sense of competition—turning shopping into an engaging experience.
             </p>
             <!-- TOGGLE LINK -->
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
@@ -780,20 +802,50 @@ section {
           <!-- Feature 2 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-money-dollar-circle-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Gift box framing the idea of "premium goods" -->
+                <rect x="12" y="24" width="40" height="32" rx="4"
+                      fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+              
+                <!-- Ribbon down the center -->
+                <line x1="32" y1="24" x2="32" y2="56"
+                      stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <line x1="12" y1="40" x2="52" y2="40"
+                      stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              
+                <!-- Bow on top -->
+                <path d="M32,24 L24,16 L32,24 L40,16"
+                      fill="none" stroke="currentColor" stroke-width="4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              
+                <!-- Star inside the box signifying "premium" -->
+                <polygon points="32,30 35,38 44,38 37,44 40,52 32,48 24,52 27,44 20,38 29,38"
+                         fill="currentColor"/>
+              
+                <!-- Price‐tag for "affordable access" -->
+                <polygon points="48,4 64,4 64,20 52,20 48,16"
+                         fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="52" cy="8" r="2" fill="currentColor"/>
+                <text x="56" y="16" text-anchor="middle"
+                      font-family="Arial, sans-serif" font-size="8" fill="currentColor">
+                  $
+                </text>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
-              Low-Cost Bidding
+              Affordable Access to Premium Goods
+
             </h3>
             <p
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              Penny auction model: each bid costs just €0.01 worth of B4P. This makes high-value products accessible for very little cost.
+            Through the gamefied-bid system, users can win luxury items—from electronics to branded goods and future tokenized assets—at just a small fraction of their actual price. This breaks down the barriers of cost and makes premium ownership more accessible to everyone
             </p>
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
@@ -803,20 +855,54 @@ section {
           <!-- Feature 3 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-exchange-funds-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Circular arrows showing ecosystem flow -->
+                <path d="M32 4
+                         A28 28 0 0 1 60 32"
+                      fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <polygon points="58,30  sixty-two,32 58,34" 
+                         fill="currentColor"/>
+                <path d="M32 60
+                         A28 28 0 0 1 4 32"
+                      fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <polygon points="6,30 2,32 6,34" 
+                         fill="currentColor"/>
+              
+                <!-- Central node -->
+                <circle cx="32" cy="32" r="6" fill="currentColor"/>
+              
+                <!-- Connections to reward nodes -->
+                <line x1="32" y1="26" x2="32" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="38" y1="34" x2="50" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="26" y1="34" x2="14" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              
+                <!-- Reward nodes: stars -->
+                <g fill="currentColor">
+                  <!-- Top star -->
+                  <polygon points="32,14 34,20 40,20 35,24 37,30 32,26 27,30 29,24 24,20 30,20"/>
+                  <!-- Bottom-right star -->
+                  <polygon points="50,40 52,46 58,46 53,50 55,56 50,52 45,56 47,50 42,46 48,46"/>
+                  <!-- Bottom-left star -->
+                  <polygon points="14,40 16,46 22,46 17,50 19,56 14,52 9,56 11,50 6,46 12,46"/>
+                </g>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
-              Instant Crypto Payouts
+              Reward-Driven Ecosystem
             </h3>
             <p
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              Winners can receive product delivery or redeem for BIDs or $B4P tokens instantly. Rewards and transactions are processed automatically.
+            Participation is always rewarded—even if a user doesn’t win an auction. Users can:
+            Earn B4P tokens through referrals, activity, and engagement.
+            Stake B4P tokens to earn passive rewards.
+            Receive free bids, bonus tokens, and rank-based benefits for being active on the platform. 
             </p>
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
@@ -826,20 +912,44 @@ section {
           <!-- Feature 4 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-stack-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Credit‐card (digital payment) -->
+                <rect x="12" y="20" width="20" height="12" rx="2"
+                      fill="none" stroke="currentColor" stroke-width="2" />
+                <rect x="14" y="24" width="8" height="2"
+                      fill="currentColor" />
+              
+                <!-- Coin (cash payment) -->
+                <ellipse cx="46" cy="26" rx="8" ry="6"
+                         fill="none" stroke="currentColor" stroke-width="2" />
+                <text x="46" y="30" text-anchor="middle"
+                      font-family="Arial, sans-serif" font-size="8"
+                      fill="currentColor">$</text>
+              
+                <!-- Arrow from card → cash -->
+                <path d="M24,20 A16,16 0 0,1 46,26"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <polygon points="46,22 50,26 46,30" fill="currentColor"/>
+              
+                <!-- Arrow from cash → card -->
+                <path d="M46,38 A16,16 0 0,1 24,44"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <polygon points="24,40 20,44 24,48" fill="currentColor"/>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
-              Staking & Rewards
+              Hybrid Payment System
+
             </h3>
             <p
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              Users can stake $B4P to earn passive rewards. Losing bidders get 80% of their BIDs back, loyalty points, and bonus bids.
-            </p>
+            Bid4Penny supports both crypto (B4P, BNB, USDT) and traditional payments (PayPal, Stripe). Users can deposit funds in their preferred format, ensuring universal accessibility and seamless onboarding for both Web2 and Web3 users..             </p>
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
@@ -849,20 +959,47 @@ section {
           <!-- Feature 5 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-gift-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Outer frame -->
+                <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+              
+                <!-- Fairness Scale -->
+                <line x1="32" y1="12" x2="32" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="16" y1="28" x2="48" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <!-- Left pan -->
+                <line x1="16" y1="28" x2="16" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="16" cy="44" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <!-- Right pan -->
+                <line x1="48" y1="28" x2="48" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="48" cy="44" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+              
+                <!-- Central “fairness check” node -->
+                <circle cx="32" cy="38" r="4" fill="currentColor"/>
+                <path d="M29,38 L31,41 L35,35" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              
+                <!-- Algorithmic network below -->
+                <circle cx="32" cy="50" r="4" fill="currentColor"/>
+                <line x1="32" y1="54" x2="24" y2="60" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="32" y1="54" x2="40" y2="60" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="60" r="2" fill="currentColor"/>
+                <circle cx="40" cy="60" r="2" fill="currentColor"/>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
-              Premium Products
+              Fair Play Algorithm
             </h3>
             <p
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              Auctions include luxury watches, electronics, branded items, and future tokenized real-world assets.
-            </p>
+            A proprietary fair-play algorithm ensures:
+            Bots or auto-bidding software can’t dominate auctions.
+            Each user has an equal opportunity to participate.
+            Suspicious patterns are automatically flagged.            </p>
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
@@ -872,7 +1009,80 @@ section {
           <!-- Feature 6 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <i class="ri-global-line ri-xl text-primary"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Left chain link (on-chain) -->
+                <path d="M8,28 h16 a4,4 0 0 1 0,8 h-16 a4,4 0 0 1 0,-8 z"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              
+                <!-- Right chain link (on-chain) -->
+                <path d="M40,28 h16 a4,4 0 0 1 0,8 h-16 a4,4 0 0 1 0,-8 z"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              
+                <!-- Arrows indicating automation flow -->
+                <path d="M24,32 h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M28,32 L26,30 M28,32 L26,34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M38,32 h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M38,32 L40,30 M38,32 L40,34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              
+                <!-- Central gear (automation) -->
+                <g transform="translate(32,32)">
+                  <circle cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <!-- Gear teeth -->
+                  <rect x="-1" y="-12" width="2" height="4" fill="currentColor"/>
+                  <rect x="-1" y="8" width="2" height="4" fill="currentColor"/>
+                  <rect x="-12" y="-1" width="4" height="2" fill="currentColor"/>
+                  <rect x="8" y="-1" width="4" height="2" fill="currentColor"/>
+                  <rect x="-8.5" y="-8.5" width="2" height="4" transform="rotate(45)" fill="currentColor"/>
+                  <rect x="6.5" y="-8.5" width="2" height="4" transform="rotate(45)" fill="currentColor"/>
+                  <rect x="-8.5" y="6.5" width="2" height="4" transform="rotate(45)" fill="currentColor"/>
+                  <rect x="6.5" y="6.5" width="2" height="4" transform="rotate(45)" fill="currentColor"/>
+                </g>
+              </svg>
+              
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">
+              Instant Wallet Integration & On-Chain Automation
+            </h3>
+            <p
+              class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 4rem;"
+            >
+            Users connect their Web3 wallets (like MetaMask) directly to:
+            Deposit and withdraw tokens.
+            Instantly receive rewards.
+            Track their bids and purchases on-chain 
+            </p>
+            <a
+              href="#"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
+            >
+              <span class="toggle-text">Learn more</span>
+              <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
+            </a>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <!-- Outer globe circle -->
+                <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+              
+                <!-- Prime meridian -->
+                <line x1="32" y1="2" x2="32" y2="62" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              
+                <!-- Equator -->
+                <ellipse cx="32" cy="32" rx="30" ry="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+              
+                <!-- Additional meridians -->
+                <path d="M12,8 A30,30 0 0,1 12,56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M52,8 A30,30 0 0,0 52,56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              
+                <!-- Additional parallels -->
+                <ellipse cx="32" cy="16" rx="30" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="32" cy="48" rx="30" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
               Global Accessibility
@@ -881,11 +1091,54 @@ section {
               class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 4rem;"
             >
-              Worldwide participation supported. EU users get product delivery; others can redeem winnings in digital assets (BIDs/B4P).
+            Borderless Winning, Flexible Delivery & Tokenized Redemption for Global Accessibility
+            To overcome geographical limitations and ensure broader accessibility, Bid4Penny offers a dual-option model for auction winners. For users located within Europe, we provide direct product delivery across all European countries. For users outside Europe—or those who prefer not to receive the physical item—they have the flexibility to redeem their won products in exchange for platform credits (BIDs) or our native token, $B4P.
+           This solution ensures that no user is left out due to location, enhancing global participation and platform scalability. By converting physical wins into digital value, we make the Bid4Penny ecosystem inclusive, borderless, and appealing to a worldwide user base. This flexibility also contributes to higher liquidity, increased token utility, and long-term engagement, making it an attractive proposition for both users and investors.
+           
             </p>
             <a
               href="#"
-              class="toggle-desc-link text-primary font-medium flex items-center hover:underline select-none"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
+            >
+              <span class="toggle-text">Learn more</span>
+              <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
+            </a>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                <g fill="currentColor">
+                  <!-- Central user -->
+                  <circle cx="32" cy="18" r="8"/>
+                  <path d="M24,30 h16 a2,2 0 0 1 2,2 v2 a0,0 0 0 1 0,0 h-20 a0,0 0 0 1 0,0 v-2 a2,2 0 0 1 2,-2 z"/>
+                  <!-- Left user -->
+                  <circle cx="16" cy="30" r="6"/>
+                  <path d="M10,38 h12 a2,2 0 0 1 2,2 v1 a0,0 0 0 1 0,0 h-16 a0,0 0 0 1 0,0 v-1 a2,2 0 0 1 2,-2 z"/>
+                  <!-- Right user -->
+                  <circle cx="48" cy="30" r="6"/>
+                  <path d="M42,38 h12 a2,2 0 0 1 2,2 v1 a0,0 0 0 1 0,0 h-16 a0,0 0 0 1 0,0 v-1 a2,2 0 0 1 2,-2 z"/>
+                </g>
+              </svg>
+              
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">
+              Engaging Community & Leaderboard System
+
+            </h3>
+            <p
+              class="truncate-desc text-gray-600 mb-4 overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 4rem;"
+            >
+            Bid4Penny incorporates gamified community features such as:
+User leaderboards.
+Daily/weekly challenges.
+Tournaments and reward pools.
+            </p>
+            <a
+              href="#"
+              class="toggle-desc-link text-primary font-medium flex items-center select-none"
             >
               <span class="toggle-text">Learn more</span>
               <i class="ri-arrow-down-line ml-1 toggle-icon"></i>
