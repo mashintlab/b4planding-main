@@ -47,6 +47,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
 
     <style>
 
@@ -597,7 +601,7 @@ section {
 
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div class="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 gap-8">
           <!-- Step 1 -->
           <div
             class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all"
@@ -1030,30 +1034,7 @@ The blockchain also manages the reward mechanism, ensuring that rewards are dist
           <!-- Feature 4 -->
           <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
             <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-                <!-- Credit‐card (digital payment) -->
-                <rect x="12" y="20" width="20" height="12" rx="2"
-                      fill="none" stroke="currentColor" stroke-width="2" />
-                <rect x="14" y="24" width="8" height="2"
-                      fill="currentColor" />
-              
-                <!-- Coin (cash payment) -->
-                <ellipse cx="46" cy="26" rx="8" ry="6"
-                         fill="none" stroke="currentColor" stroke-width="2" />
-                <text x="46" y="30" text-anchor="middle"
-                      font-family="Arial, sans-serif" font-size="8"
-                      fill="currentColor">$</text>
-              
-                <!-- Arrow from card → cash -->
-                <path d="M24,20 A16,16 0 0,1 46,26"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <polygon points="46,22 50,26 46,30" fill="currentColor"/>
-              
-                <!-- Arrow from cash → card -->
-                <path d="M46,38 A16,16 0 0,1 24,44"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <polygon points="24,40 20,44 24,48" fill="currentColor"/>
-              </svg>
+             
               
             </div>
             <h3 class="text-xl font-semibold mb-3 text-gray-900">
@@ -1428,69 +1409,262 @@ Tournaments and reward pools.
               <h3 class="text-2xl font-semibold mb-6 text-gray-900">
                 Token Use Cases
               </h3>
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-                  >
-                    <i class="ri-auction-line text-primary"></i>
-                  </div>
+              <!-- Constraining wrapper -->
+        <div class="relative overflow-hidden">
+          <!-- Swiper container with max width -->
+          <div class="swiper-container max-w-4xl mx-auto">
+            <div class="swiper-wrapper">
+  
+              <!-- Slide 1 -->
+              <div class="swiper-slide bg-white p-6 ">
+                <div class="flex flex-col items-center space-x-3 mb-4">
                   <div>
-                    <h4 class="text-lg font-medium mb-1 text-gray-900">
-                      Bidding Credits
-                    </h4>
-                    <p class="text-gray-600">
-                      $B4P is used to buy BIDs and participate in auctions.
-                    </p>
+                    <svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                      <!-- Phone -->
+                      <rect x="10" y="10" width="60" height="100" rx="8" ry="8"
+                            fill="none" stroke="currentColor" stroke-width="2"/>
+                      <!-- Phone screen -->
+                      <rect x="20" y="20" width="40" height="80"
+                            fill="none" stroke="currentColor" stroke-width="1"/>
+                    
+                      <!-- Connection lines -->
+                      <line x1="70" y1="30" x2="130" y2="30"
+                            stroke="currentColor" stroke-width="2"/>
+                      <line x1="70" y1="60" x2="130" y2="60"
+                            stroke="currentColor" stroke-width="2"/>
+                      <line x1="70" y1="90" x2="130" y2="90"
+                            stroke="currentColor" stroke-width="2"/>
+                    
+                      <!-- Node circles -->
+                      <circle cx="150" cy="30" r="20"
+                              fill="none" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="150" cy="60" r="20"
+                              fill="none" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="150" cy="90" r="20"
+                              fill="none" stroke="currentColor" stroke-width="2"/>
+                    
+                      <!-- Dollar icon in top circle -->
+                      <text x="150" y="36" font-family="Arial, sans-serif" font-size="16"
+                            text-anchor="middle" fill="currentColor">$</text>
+                    
+                      <!-- Card icon in middle circle (two overlapping cards) -->
+                      <rect x="142" y="52" width="16" height="10" rx="2" ry="2"
+                            fill="none" stroke="currentColor" stroke-width="2"/>
+                      <rect x="146" y="56" width="16" height="10" rx="2" ry="2"
+                            fill="none" stroke="currentColor" stroke-width="2"/>
+                    
+                      <!-- Bar-chart icon in bottom circle -->
+                      <rect x="146" y="96" width="4" height="8" fill="currentColor"/>
+                      <rect x="152" y="90" width="4" height="14" fill="currentColor"/>
+                      <rect x="158" y="84" width="4" height="20" fill="currentColor"/>
+                    </svg>
                   </div>
-                </div>
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-                  >
-                    <i class="ri-award-line text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-medium mb-1 text-gray-900">
-                      Platform Rewards
-                    </h4>
-                    <p class="text-gray-600">
-                      Users earn B4P via engagement, referrals, and loyalty bonuses.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-                  >
-                    <i class="ri-stack-line text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-medium mb-1 text-gray-900">
-                      Staking
-                    </h4>
-                    <p class="text-gray-600">
-                      Stake B4P to earn passive income and unlock platform
-                      benefits
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-                  >
-                    <i class="ri-government-line text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-medium mb-1 text-gray-900">
-                      Governance
-                    </h4>
-                    <p class="text-gray-600">
-                      B4P holders can vote on new features, product categories, and future updates. DAO integration is planned.
-                    </p>
-                  </div>
-                </div>
+                  
+                  <h3 class="text-lg font-semibold">Ecosystem &amp; Payments</h3>
+                 </div>
+                <p class="text-gray-900 text-sm">
+                  $B4P is the primary currency used across the Bid4Penny platform. Users utilize it to bid on auctions, access premium features, and make seamless in-platform purchases. All transactions are facilitated using $B4P.
+                </p>
               </div>
+  
+              <!-- Slide 2 -->
+              <div class="swiper-slide bg-white rounded-xl shadow-xl p-6 ">
+                <div class="flex flex-col items-center space-x-3 mb-4">
+                
+                  <div>
+             
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 64 64"
+                    width="200"
+                    height="120"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <!-- Left plant -->
+                    <g>
+                      <!-- Outer & inner rings -->
+                      <circle cx="18" cy="16" r="8"/>
+                      <circle cx="18" cy="16" r="6"/>
+                  
+                      <!-- Circuit nodes -->
+                      <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+                      <circle cx="21" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                  
+                      <!-- Connecting curve -->
+                      <path d="M15 13 C17 13 19 15 21 19"/>
+                  
+                      <!-- Stem -->
+                      <path d="M18 24 L18 36"/>
+                  
+                      <!-- Leaves -->
+                      <path d="M18 28 C14 30 14 34 18 34"/>
+                      <path d="M18 28 C22 30 22 34 18 34"/>
+                    </g>
+                  
+                    <!-- Right plant (smaller, shifted right) -->
+                    <g transform="translate(36,0) scale(0.7)">
+                      <!-- Outer & inner rings -->
+                      <circle cx="18" cy="16" r="8"/>
+                      <circle cx="18" cy="16" r="6"/>
+                  
+                      <!-- Circuit nodes -->
+                      <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+                      <circle cx="21" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+                  
+                      <!-- Connecting curve -->
+                      <path d="M15 13 C17 13 19 15 21 19"/>
+                  
+                      <!-- Stem -->
+                      <path d="M18 24 L18 36"/>
+                  
+                      <!-- Leaves -->
+                      <path d="M18 28 C14 30 14 34 18 34"/>
+                      <path d="M18 28 C22 30 22 34 18 34"/>
+                    </g>
+                  </svg>
+                  
+                  
+                  </div>
+                  
+                  <h3 class="text-lg font-semibold">Staking &amp; Yield Farming</h3>
+                </div>
+                <p class="text-gray-900 text-sm">
+                  Token holders can stake their $B4P to earn passive rewards through our staking pools and participate in yield farming opportunities. This incentivizes long-term holding and contributes to supply scarcity.
+                </p>
+              </div>
+  
+              <!-- Slide 3 -->
+              <div class="swiper-slide bg-white p-6 ">
+                <div class="flex flex-col items-center space-x-3 mb-4">
+      
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="120"
+     viewBox="0 0 48 48"
+     fill="none" stroke="currentColor"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Hexagon border -->
+  <path d="M24 6 
+           L39.6 15 
+           L39.6 33 
+           L24 42 
+           L8.4 33 
+           L8.4 15 
+           Z"/>
+
+  <!-- Nodes on hexagon -->
+  <g fill="currentColor" stroke="none">
+    <circle cx="24" cy="6"   r="2"/>
+    <circle cx="39.6" cy="15" r="2"/>
+    <circle cx="39.6" cy="33" r="2"/>
+    <circle cx="24" cy="42"  r="2"/>
+    <circle cx="8.4"  cy="33" r="2"/>
+    <circle cx="8.4"  cy="15" r="2"/>
+  </g>
+
+  <!-- Building (pediment + columns + base) -->
+  <!-- Pediment -->
+  <path d="M15 22 L24 16 L33 22 Z"/>
+  <!-- Entablature -->
+  <path d="M15 22 H33"/>
+  <!-- Columns (3 evenly spaced) -->
+  <path d="M17 26 V34"/>
+  <path d="M24 26 V34"/>
+  <path d="M31 26 V34"/>
+  <!-- Base layers -->
+  <path d="M15 32 H33"/>
+  <path d="M13 34 H35"/>
+
+  <!-- Center token icon -->
+  <circle cx="24" cy="28" r="4"/>
+  <path d="M24 24 L24 28 L20 32 
+           M24 28 L28 32"/>
+
+</svg>
+
+                  </div>
+                  <h3 class="text-lg font-semibold">Governance &amp; DAO Participation</h3>
+                </div>
+                <p class="text-gray-900 text-sm">
+                  $B4P holders will have the power to influence key decisions within the platform through a decentralized governance model. From choosing new product categories to shaping reward mechanics, the community will have a voice.
+                </p>
+              </div>
+  
+              <!-- Slide 4 -->
+              <div class="swiper-slide bg-white p-6 ">
+                <div class="flex flex-col items-center space-x-3 mb-4">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                  width="200" height="120"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+             
+               <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+             </svg>
+                  </div>
+             
+                  <h3 class="text-lg font-semibold">Auction Perks &amp; Boosts</h3>
+                </div>
+                <p class="text-gray-900 text-sm">
+                  Holding $B4P unlocks exclusive perks such as discounted bids, early access to premium auctions, and participation in lucky-draw style events.
+                </p>
+              </div>
+  
+              <!-- Slide 5 -->
+              <div class="swiper-slide bg-white p-6 ">
+                <div class="flex flex-col items-center space-x-3 mb-4">
+                 <div>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                  width="200" height="120"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+             
+               <!-- Gift box -->
+               <rect x="2" y="8" width="20" height="12" rx="2" ry="2"/>
+             
+               <!-- Vertical ribbon -->
+               <line x1="12" y1="8" x2="12" y2="20"/>
+             
+               <!-- Horizontal ribbon -->
+               <line x1="2" y1="14" x2="22" y2="14"/>
+             
+               <!-- Left bow loop -->
+               <path d="M12 8 C9 8 9 12 12 12"/>
+             
+               <!-- Right bow loop -->
+               <path d="M12 8 C15 8 15 12 12 12"/>
+             
+             </svg>
+             
+
+                 </div>
+                  <h3 class="text-lg font-semibold">Loyalty Tiers &amp; Gamified Rewards</h3>
+                </div>
+                <p class="text-gray-900 text-sm">
+                  Users are rewarded based on the amount of $B4P they hold, unlocking loyalty levels (e.g., Bronze, Silver, Gold) that offer increasing platform benefits.
+                </p>
+              </div>
+  
+            </div>
+  
+            <!-- Navigation -->
+            <div class="swiper-button-prev text-teal-400"></div>
+            <div class="swiper-button-next text-teal-400"></div>
+          </div>
+        </div>
             </div>
           </div>
           <div>
@@ -1503,7 +1677,7 @@ Tournaments and reward pools.
               <div class="mb-8">
                 <div class="flex justify-between mb-2">
                   <span class="text-gray-700 font-medium">Staking Amount</span>
-                  <span id="displayamount" class="text-primary font-medium">5,000 B4P</span>
+                  <span id="displayamount" class="text-primary font-medium">5000 B4P</span>
                 </div>
                 <input
                   type="range"
@@ -1515,7 +1689,7 @@ Tournaments and reward pools.
                 />
                 <div class="flex justify-between text-sm text-gray-500">
                   <span>100 B4P</span>
-                  <span>10,000 B4P</span>
+                  <span>10000 B4P</span>
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-6 mb-8">
@@ -2391,6 +2565,25 @@ Tournaments and reward pools.
       </div>
     </footer>
     <!-- Scripts -->
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper('.swiper-container', {
+        slidesPerView: 'auto',     // each slide width is determined by 
+        centeredSlides: true,      // center the active slide
+        spaceBetween: 24,          // gap between slides
+        loop: false,               // set to true if you want infinite looping
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: { spaceBetween: 32 },
+          1024:{ spaceBetween: 40 },
+        },
+      });
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
