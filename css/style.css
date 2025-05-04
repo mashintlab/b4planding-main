@@ -1,0 +1,332 @@
+
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#introportrait{
+  display: none;
+}
+.bg-primary{
+background-color: #51c4a5 !important;
+}
+
+.text-primary{
+color: #3f5aaa !important;
+}
+html {
+scroll-behavior: smooth;
+}
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+:root {
+--primary-color: #6366f1;
+--secondary-color: #4f46e5;
+}
+.dark {
+color-scheme: dark;
+}
+.dark body {
+background-color: #111827;
+color: #fff;
+}
+.dark .bg-white {
+background-color: #1f2937;
+background-color: #000;
+}
+.dark .bg-gray-50 {
+background-color: #111827;
+}
+.dark .text-gray-900 {
+color: #fff;
+}
+.dark .text-gray-600 {
+color: #9ca3af;
+}
+.dark .text-gray-500 {
+color: #6b7280;
+}
+.dark .text-gray-400 {
+color: #9ca3af;
+}
+.dark .border-gray-100 {
+border-color: #374151;
+}
+.dark .shadow-lg {
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+.dark .shadow-md {
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+}
+.dark .bg-gray-200 {
+background-color: #374151;
+}
+.dark .hover\:bg-gray-50:hover {
+background-color: #374151;
+}
+.dark .hover\:bg-gray-100:hover {
+background-color: #374151;
+}
+.dark .bg-gray-800 {
+background-color: #1f2937;
+}
+.dark .hover\:bg-gray-800:hover {
+background-color: #374151;
+}
+.dark .custom-checkbox {
+border-color: #4b5563;
+}
+.dark input[type="email"] {
+background-color: #374151;
+color: #fff;
+}
+.dark input[type="email"]::placeholder {
+color: #9ca3af;
+}
+.dark .feature-card:hover,
+.dark .auction-card:hover {
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+
+.dark .neon-box {
+  /* Dark background really makes the glow pop */
+  background-color: #111;
+  
+  /* Padding & border-radius just for demo */
+  padding: 2rem;
+  border-radius: 8px;
+  
+  /* Neon green glow layers */
+  box-shadow:
+    /* small tight glow */
+    0 0 4px #51c4a5,
+    /* medium core glow */
+    0 0 10px #51c4a5,
+    /* larger outer glow */
+    0 0 20px #51c4a5,
+    /* subtle colored haze */
+    0 0 30px rgba(81, 196, 165, 0.6),
+    /* inset highlight for depth */
+    inset 0 0 8px rgba(81, 196, 165, 0.3);
+  
+  /* Optional transition for hover effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.dark .neon-box-2{
+  /* Dark background really makes the glow pop */
+  background-color: #000;
+  
+  /* Padding & border-radius just for demo */
+  padding: 2rem;
+  border-radius: 8px;
+  
+  /* Neon green glow layers */
+  box-shadow:
+    /* small tight glow */
+    0 0 4px #415ba7,
+    /* medium core glow */
+    0 0 10px #415ba7,
+    /* larger outer glow */
+    0 0 20px #415ba7,
+    /* subtle colored haze */
+    0 0 30px rgba(65, 91, 167, 0.6),
+    /* inset highlight for depth */
+    inset 0 0 8px rgba(65, 91, 167, 0.3);
+  
+  /* Optional transition for hover effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.dark .neon-box-2:hover {
+  box-shadow:
+    0 0 6px #415ba7,
+    0 0 15px #415ba7,
+    0 0 30px #415ba7,
+    0 0 45px rgba(65, 91, 167, 0.7),
+    inset 0 0 10px rgba(65, 91, 167, 0.4);
+}
+
+.dark .neon-box:hover {
+  box-shadow:
+    0 0 6px #51c4a5,
+    0 0 15px #51c4a5,
+    0 0 30px #51c4a5,
+    0 0 45px rgba(81, 196, 165, 0.7),
+    inset 0 0 10px rgba(81, 196, 165, 0.4);
+}
+
+
+.auction-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+}
+.feature-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+}
+.timeline-connector {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 2px;
+height: 100%;
+background-color: #e5e7eb;
+z-index: 1;
+}
+.timeline-dot {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: #6366f1;
+z-index: -1;
+}
+.timeline-dot::before {
+content: "";
+position: absolute;
+top: -4px;
+left: -4px;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+border: 2px solid #6366f1;
+opacity: 0.3;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+transition: all 0.2s;
+}
+.custom-checkbox:checked {
+background-color: #6366f1;
+border-color: #6366f1;
+}
+.custom-checkbox:checked::after {
+content: "";
+position: absolute;
+top: 3px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #6366f1;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #e5e7eb;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #6366f1;
+cursor: pointer;
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #6366f1;
+cursor: pointer;
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+.auction-timer {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% {
+box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+}
+70% {
+box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+}
+}
+.faqitem{
+  height: 80px;
+  transition: height 0.3s ease-in;
+}
+
+.faqitem.show{
+  height: 170px;
+ 
+}
+
+@media screen and (max-width: 767px) {
+/* your styles for devices below 768px go here */
+  #introportrait{
+    display: block;
+  }
+  #introlandscape{
+    display: none;
+  }
+
+  
+}
+
