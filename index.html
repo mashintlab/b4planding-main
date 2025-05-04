@@ -1571,7 +1571,7 @@ Tournaments and reward pools.
         
             <div class="relative max-w-4xl mx-auto">
               <!-- center line -->
-              <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+              <div id="line" class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200"></div>
         
               <!-- empty placeholder for JS -->
               <div id="roadmap-items"></div>
@@ -1710,7 +1710,7 @@ Tournaments and reward pools.
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.2
     });
 
     items.forEach(el => observer.observe(el));
@@ -2430,7 +2430,7 @@ document.querySelector('[data-category="apple"]').classList.remove('border-gray-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
-    const observerOptions = { threshold: 0.1 };
+    const observerOptions = { threshold: 0.2 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
