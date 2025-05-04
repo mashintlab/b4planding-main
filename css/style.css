@@ -308,14 +308,14 @@ box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
 box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
 }
 }
-.faqitem{
-  height: 80px;
+.faqitem {
+  height: 90px;
+  
   transition: height 0.3s ease-in;
 }
 
-.faqitem.show{
-  height: 170px;
- 
+.faqitem.show {
+  height: 170px; /* or any value that is enough to show the content */
 }
 
 @media screen and (max-width: 767px) {
@@ -330,5 +330,16 @@ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   #line{
     display: none;
   }
+
+  .faqitem {
+    height: 120px;
+    
+    transition: height 0.3s ease-in;
+  }
+  
+  .faqitem.show {
+    height: 270px; /* or any value that is enough to show the content */
+  }
+  
 }
 
