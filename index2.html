@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BID4PENNY - Blockchain Auction Platform</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#4f46e5'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+:root {
+--primary-color: #6366f1;
+--secondary-color: #4f46e5;
+}
+.dark {
+color-scheme: dark;
+}
+.dark body {
+background-color: #111827;
+color: #fff;
+}
+.dark .bg-white {
+background-color: #1f2937;
+}
+.dark .bg-gray-50 {
+background-color: #111827;
+}
+.dark .text-gray-900 {
+color: #fff;
+}
+.dark .text-gray-600 {
+color: #9ca3af;
+}
+.dark .text-gray-500 {
+color: #6b7280;
+}
+.dark .text-gray-400 {
+color: #9ca3af;
+}
+.dark .border-gray-100 {
+border-color: #374151;
+}
+.dark .shadow-lg {
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+.dark .shadow-md {
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+}
+.dark .bg-gray-200 {
+background-color: #374151;
+}
+.dark .hover\:bg-gray-50:hover {
+background-color: #374151;
+}
+.dark .hover\:bg-gray-100:hover {
+background-color: #374151;
+}
+.dark .bg-gray-800 {
+background-color: #1f2937;
+}
+.dark .hover\:bg-gray-800:hover {
+background-color: #374151;
+}
+.dark .custom-checkbox {
+border-color: #4b5563;
+}
+.dark input[type="email"] {
+background-color: #374151;
+color: #fff;
+}
+.dark input[type="email"]::placeholder {
+color: #9ca3af;
+}
+.dark .feature-card:hover,
+.dark .auction-card:hover {
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+.auction-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+}
+.feature-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+}
+.timeline-connector {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 2px;
+height: 100%;
+background-color: #e5e7eb;
+z-index: -1;
+}
+.timeline-dot {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: #6366f1;
+z-index: 1;
+}
+.timeline-dot::before {
+content: "";
+position: absolute;
+top: -4px;
+left: -4px;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+border: 2px solid #6366f1;
+opacity: 0.3;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+transition: all 0.2s;
+}
+.custom-checkbox:checked {
+background-color: #6366f1;
+border-color: #6366f1;
+}
+.custom-checkbox:checked::after {
+content: "";
+position: absolute;
+top: 3px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #6366f1;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #e5e7eb;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #6366f1;
+cursor: pointer;
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #6366f1;
+cursor: pointer;
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+.auction-timer {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% {
+box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+}
+70% {
+box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+}
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm z-50 shadow-sm transition-colors">
+<div class="container mx-auto px-4 py-3 lg:py-4 flex items-center justify-between">
+<a href="#" class="text-xl sm:text-2xl font-['Pacifico'] text-primary flex-shrink-0">BID4PENNY</a>
+<nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+<a href="#how-it-works" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm xl:text-base">How It Works</a>
+<a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm xl:text-base">Features</a>
+<a href="#auctions" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm xl:text-base">Live Auctions</a>
+<a href="#token" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm xl:text-base">Token</a>
+<a href="#roadmap" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm xl:text-base">Roadmap</a>
+</nav>
+<div class="lg:hidden fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40 hidden" id="mobile-menu-overlay"></div>
+<div class="lg:hidden fixed top-[65px] sm:top-[73px] left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-lg z-50 transform transition-transform duration-300 -translate-y-full" id="mobile-menu">
+<nav class="container mx-auto px-4 py-4 flex flex-col space-y-3">
+<a href="#how-it-works" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<i class="ri-information-line mr-3 text-lg"></i>
+How It Works
+</a>
+<a href="#features" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<i class="ri-function-line mr-3 text-lg"></i>
+Features
+</a>
+<a href="#auctions" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<i class="ri-auction-line mr-3 text-lg"></i>
+Live Auctions
+</a>
+<a href="#token" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<i class="ri-coin-line mr-3 text-lg"></i>
+Token
+</a>
+<a href="#roadmap" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<i class="ri-road-map-line mr-3 text-lg"></i>
+Roadmap
+</a>
+<div class="pt-2 mt-2 border-t border-gray-100 dark:border-gray-800">
+<button class="w-full px-6 py-3 bg-white dark:bg-gray-800 text-primary border border-primary hover:bg-gray-50 dark:hover:bg-gray-700 !rounded-button font-medium transition-colors whitespace-nowrap">
+Sign In
+</button>
+<button class="w-full px-6 py-3 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap mt-3">
+Connect Wallet
+</button>
+</div>
+</nav>
+</div>
+<div class="flex items-center">
+<button class="hidden lg:block px-4 xl:px-6 py-2 bg-white dark:bg-gray-800 text-primary border border-primary hover:bg-gray-50 dark:hover:bg-gray-700 !rounded-button font-medium transition-colors whitespace-nowrap text-sm xl:text-base mr-3 xl:mr-4">
+Sign In
+</button>
+<button class="hidden sm:block px-4 xl:px-6 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap text-sm xl:text-base mr-3 xl:mr-4">
+Connect Wallet
+</button>
+<button class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors mr-2 sm:mr-3" id="theme-toggle">
+<i class="ri-sun-line dark:ri-moon-line text-lg sm:text-xl"></i>
+</button>
+<button class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors" id="mobile-menu-button">
+<i class="ri-menu-line text-xl sm:text-2xl"></i>
+</button>
+</div>
+</div>
+</header>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Category slideshow functionality
+const categoryImages = {
+apple: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20iPhone%2015%20Pro%20Max%20in%20titanium%20finish%20against%20clean%20white%20background%2C%20showing%20premium%20design%20and%20camera%20system&width=1280&height=720&seq=10&orientation=landscape",
+title: "iPhone 15 Pro Max"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20MacBook%20Air%20M2%20in%20space%20gray%2C%20displaying%20sleek%20design%20and%20retina%20display%20against%20white%20background&width=1280&height=720&seq=11&orientation=landscape",
+title: "MacBook Air M2"
+}
+],
+"bid-packs": [
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20premium%20bid%20pack%20tokens%20with%20golden%20glow%20effect%20against%20dark%20background&width=1280&height=720&seq=13&orientation=landscape",
+title: "Premium Bid Pack"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20starter%20bid%20pack%20bundle%20with%20special%20offer%20badge%20against%20gradient%20background&width=1280&height=720&seq=14&orientation=landscape",
+title: "Starter Bid Pack"
+}
+],
+console: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20PlayStation%205%20with%20DualSense%20controller%20against%20clean%20studio%20background&width=1280&height=720&seq=15&orientation=landscape",
+title: "PlayStation 5"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Xbox%20Series%20X%20with%20wireless%20controller%20against%20minimalist%20background&width=1280&height=720&seq=16&orientation=landscape",
+title: "Xbox Series X"
+}
+],
+crypto: [
+{
+url: "https://readdy.ai/api/search-image?query=3D%20rendering%20of%20golden%20Bitcoin%20coin%20with%20digital%20network%20effect%20against%20dark%20background&width=1280&height=720&seq=17&orientation=landscape",
+title: "Bitcoin"
+},
+{
+url: "https://readdy.ai/api/search-image?query=3D%20illustration%20of%20cryptocurrency%20hardware%20wallet%20with%20security%20features%20highlighted%20against%20tech%20background&width=1280&height=720&seq=18&orientation=landscape",
+title: "Hardware Wallet"
+}
+],
+electronic: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20high-end%20gaming%20laptop%20with%20RGB%20keyboard%20against%20dark%20background&width=1280&height=720&seq=19&orientation=landscape",
+title: "Gaming Laptop"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%204K%20curved%20gaming%20monitor%20with%20minimal%20bezels%20against%20studio%20background&width=1280&height=720&seq=20&orientation=landscape",
+title: "4K Monitor"
+}
+],
+fitness: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20fitness%20watch%20with%20heart%20rate%20monitoring%20display%20against%20light%20background&width=1280&height=720&seq=21&orientation=landscape",
+title: "Smart Fitness Watch"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20premium%20wireless%20earbuds%20with%20charging%20case%20against%20minimal%20background&width=1280&height=720&seq=22&orientation=landscape",
+title: "Wireless Earbuds"
+}
+],
+gadgets: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20drone%20with%204K%20camera%20against%20cloudy%20sky%20background&width=1280&height=720&seq=23&orientation=landscape",
+title: "4K Drone"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20VR%20headset%20with%20controllers%20against%20futuristic%20background&width=1280&height=720&seq=24&orientation=landscape",
+title: "VR Headset"
+}
+],
+garden: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20cordless%20electric%20lawn%20mower%20against%20garden%20background&width=1280&height=720&seq=25&orientation=landscape",
+title: "Electric Lawn Mower"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20garden%20watering%20system%20with%20mobile%20app%20control%20against%20garden%20background&width=1280&height=720&seq=26&orientation=landscape",
+title: "Smart Watering System"
+}
+],
+"gift-card": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20digital%20gift%20cards%20collection%20with%20modern%20design%20against%20clean%20background&width=1280&height=720&seq=27&orientation=landscape",
+title: "Premium Gift Cards"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20membership%20cards%20with%20luxury%20design%20elements%20against%20elegant%20background&width=1280&height=720&seq=28&orientation=landscape",
+title: "Exclusive Memberships"
+}
+],
+health: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20skincare%20and%20beauty%20products%20collection%20against%20clean%20white%20background&width=1280&height=720&seq=29&orientation=landscape",
+title: "Premium Beauty Collection"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20wellness%20and%20health%20supplements%20against%20minimalist%20background&width=1280&height=720&seq=30&orientation=landscape",
+title: "Wellness Essentials"
+}
+],
+hobbies: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20art%20supplies%20and%20creative%20tools%20collection%20against%20studio%20background&width=1280&height=720&seq=31&orientation=landscape",
+title: "Creative Arts Collection"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20collectible%20toys%20and%20limited%20editions%20against%20display%20background&width=1280&height=720&seq=32&orientation=landscape",
+title: "Collectible Treasures"
+}
+],
+kitchen: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20kitchen%20appliances%20and%20cookware%20set%20against%20modern%20kitchen%20background&width=1280&height=720&seq=33&orientation=landscape",
+title: "Premium Kitchen Set"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20dining%20set%20and%20tableware%20collection%20against%20elegant%20background&width=1280&height=720&seq=34&orientation=landscape",
+title: "Luxury Dining Collection"
+}
+],
+luxury: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20watches%20and%20jewelry%20collection%20against%20premium%20dark%20background&width=1280&height=720&seq=35&orientation=landscape",
+title: "Luxury Timepieces"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20designer%20handbags%20and%20accessories%20against%20elegant%20background&width=1280&height=720&seq=36&orientation=landscape",
+title: "Designer Accessories"
+}
+],
+pet: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20pet%20food%20and%20nutrition%20products%20against%20clean%20background&width=1280&height=720&seq=37&orientation=landscape",
+title: "Premium Pet Nutrition"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20pet%20accessories%20and%20care%20products%20against%20modern%20background&width=1280&height=720&seq=38&orientation=landscape",
+title: "Luxury Pet Care"
+}
+],
+"real-estate": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20modern%20house%20exterior%20with%20pool%20against%20sunset%20background&width=1280&height=720&seq=39&orientation=landscape",
+title: "Luxury Residences"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20apartment%20interior%20with%20modern%20design%20against%20city%20view&width=1280&height=720&seq=40&orientation=landscape",
+title: "Premium Properties"
+}
+],
+"secret-love": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20romantic%20gift%20packages%20and%20surprise%20boxes%20against%20elegant%20background&width=1280&height=720&seq=41&orientation=landscape",
+title: "Romantic Surprises"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20date%20night%20experiences%20and%20couple%20activities%20against%20romantic%20background&width=1280&height=720&seq=42&orientation=landscape",
+title: "Special Moments"
+}
+],
+tickets: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20concert%20and%20festival%20tickets%20with%20VIP%20passes%20against%20event%20background&width=1280&height=720&seq=43&orientation=landscape",
+title: "VIP Event Access"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20sports%20event%20tickets%20and%20packages%20against%20stadium%20background&width=1280&height=720&seq=44&orientation=landscape",
+title: "Sports Experiences"
+}
+],
+travels: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20travel%20packages%20and%20vacation%20experiences%20against%20paradise%20beach%20background&width=1280&height=720&seq=45&orientation=landscape",
+title: "Luxury Getaways"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20holiday%20packages%20and%20adventure%20tours%20against%20scenic%20background&width=1280&height=720&seq=46&orientation=landscape",
+title: "Adventure Packages"
+}
+],
+vehicles: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20cars%20and%20premium%20vehicles%20against%20modern%20showroom%20background&width=1280&height=720&seq=47&orientation=landscape",
+title: "Luxury Vehicles"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20motorcycles%20and%20exclusive%20models%20against%20studio%20background&width=1280&height=720&seq=48&orientation=landscape",
+title: "Premium Motorcycles"
+}
+]
+};
+let currentCategory = 'apple';
+let currentSlideIndex = 0;
+let slideInterval;
+function createSlideElement(imageData) {
+const slide = document.createElement('div');
+slide.className = 'absolute inset-0 transition-opacity duration-500 opacity-0';
+slide.innerHTML = `
+<img src="${imageData.url}" alt="${imageData.title}" class="w-full h-full object-cover">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+<h3 class="text-white text-2xl font-semibold">${imageData.title}</h3>
+</div>
+`;
+return slide;
+}
+function updateSlideshow(category) {
+const slideshow = document.getElementById('slideshow');
+const indicators = document.getElementById('slideIndicators');
+currentCategory = category;
+currentSlideIndex = 0;
+// Clear existing slides and indicators
+slideshow.innerHTML = '';
+indicators.innerHTML = '';
+// Create new slides and indicators
+categoryImages[category].forEach((imageData, index) => {
+const slide = createSlideElement(imageData);
+if (index === 0) slide.classList.remove('opacity-0');
+slideshow.appendChild(slide);
+const indicator = document.createElement('button');
+indicator.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/50'}`;
+indicator.onclick = () => showSlide(index);
+indicators.appendChild(indicator);
+});
+// Reset interval
+if (slideInterval) clearInterval(slideInterval);
+startSlideshow();
+}
+function showSlide(index) {
+const slides = document.getElementById('slideshow').children;
+const indicators = document.getElementById('slideIndicators').children;
+// Hide current slide
+slides[currentSlideIndex].classList.add('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white', 'bg-white/50');
+// Show new slide
+currentSlideIndex = index;
+slides[currentSlideIndex].classList.remove('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white/50', 'bg-white');
+}
+function nextSlide() {
+const nextIndex = (currentSlideIndex + 1) % categoryImages[currentCategory].length;
+showSlide(nextIndex);
+}
+function prevSlide() {
+const prevIndex = (currentSlideIndex - 1 + categoryImages[currentCategory].length) % categoryImages[currentCategory].length;
+showSlide(prevIndex);
+}
+function startSlideshow() {
+slideInterval = setInterval(nextSlide, 5000);
+}
+// Initialize slideshow
+updateSlideshow('apple');
+// Add event listeners
+document.querySelectorAll('.category-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+// Remove active state from all buttons
+document.querySelectorAll('.category-btn').forEach(b => {
+b.classList.remove('border-primary');
+b.classList.add('border-gray-100');
+});
+// Add active state to clicked button
+e.currentTarget.classList.remove('border-gray-100');
+e.currentTarget.classList.add('border-primary');
+updateSlideshow(e.currentTarget.dataset.category);
+});
+});
+document.getElementById('nextSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+nextSlide();
+startSlideshow();
+});
+document.getElementById('prevSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+prevSlide();
+startSlideshow();
+});
+// Add active state to initial category
+document.querySelector('[data-category="apple"]').classList.add('border-primary');
+document.querySelector('[data-category="apple"]').classList.remove('border-gray-100');
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+const icon = themeToggle.querySelector('i');
+// Function to update theme
+function updateTheme(isDark) {
+if (isDark) {
+html.classList.add('dark');
+icon.classList.remove('ri-sun-line');
+icon.classList.add('ri-moon-line');
+localStorage.theme = 'dark';
+} else {
+html.classList.remove('dark');
+icon.classList.remove('ri-moon-line');
+icon.classList.add('ri-sun-line');
+localStorage.theme = 'light';
+}
+}
+// Check for saved theme preference or system preference
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+updateTheme(true);
+} else {
+updateTheme(false);
+}
+// Toggle theme
+themeToggle.addEventListener('click', function() {
+updateTheme(!html.classList.contains('dark'));
+});
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+if (!localStorage.theme) {
+updateTheme(e.matches);
+}
+});
+});
+</script>
+<!-- Hero Section -->
+<section class="relative pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+<source src="https://public.readdy.ai/gen_page/hero_video_bg.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60"></div>
+</div>
+<div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+Bid Smart, Win Big with Blockchain Auctions
+</h1>
+<p class="text-xl text-gray-200 mb-8 leading-relaxed">
+Experience the future of online auctions with transparent, low-cost bidding powered by blockchain technology. Win premium products and earn crypto rewards.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold !rounded-button whitespace-nowrap">
+Get Started
+</button>
+<button class="px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold !rounded-button backdrop-blur-sm whitespace-nowrap">
+<span class="flex items-center justify-center gap-2">
+<i class="ri-play-circle-line"></i> Watch Demo
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"></div>
+</section>
+<!-- How It Works -->
+<section id="how-it-works" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">How BID4PENNY Works</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Our blockchain-powered auction platform makes bidding simple, transparent, and rewarding
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+<!-- Step 1 -->
+<div class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+<i class="ri-wallet-3-line ri-xl text-primary"></i>
+</div>
+<div class="text-center">
+<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mb-3">1</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-900">Buy BID Credits</h3>
+<p class="text-gray-600">Purchase credits using B4P tokens, PayPal, or credit card</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+<i class="ri-auction-line ri-xl text-primary"></i>
+</div>
+<div class="text-center">
+<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mb-3">2</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-900">Join Live Auction</h3>
+<p class="text-gray-600">Browse and enter active auctions for premium products</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+<i class="ri-hand-coin-line ri-xl text-primary"></i>
+</div>
+<div class="text-center">
+<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mb-3">3</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-900">Place Bids</h3>
+<p class="text-gray-600">Make low-cost bids to compete for valuable items</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+<i class="ri-trophy-line ri-xl text-primary"></i>
+</div>
+<div class="text-center">
+<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mb-3">4</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-900">Win Items</h3>
+<p class="text-gray-600">Win real-world products at fraction of retail prices</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="bg-white rounded-lg p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+<i class="ri-coin-line ri-xl text-primary"></i>
+</div>
+<div class="text-center">
+<div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mb-3">5</div>
+<h3 class="text-xl font-semibold mb-2 text-gray-900">Receive Rewards</h3>
+<p class="text-gray-600">Earn B4P tokens as rewards for participation</p>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<div class="relative aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-xl border-4 border-white">
+<div class="absolute inset-0 flex items-center justify-center bg-gray-900">
+<div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
+<i class="ri-play-fill ri-3x text-white"></i>
+</div>
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20video%20thumbnail%20showing%20a%20blockchain%20auction%20platform%20interface%20with%20bidding%20process.%20Clean%20modern%20design%20with%20blue%20and%20purple%20accents.%20Shows%20auction%20items%2C%20bid%20history%2C%20and%20cryptocurrency%20elements.%20High-quality%20professional%20marketing%20video%20appearance.&width=1280&height=720&seq=2&orientation=landscape" alt="How BID4PENNY Works" class="absolute inset-0 w-full h-full object-cover opacity-50">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features -->
+<section id="features" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Key Features</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Discover what makes BID4PENNY the most innovative auction platform in the blockchain space
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-shield-check-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Blockchain Transparency</h3>
+<p class="text-gray-600 mb-4">
+All bids and transactions are recorded on the blockchain, ensuring complete transparency and preventing fraud.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+<!-- Feature 2 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-money-dollar-circle-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Low-Cost Bidding</h3>
+<p class="text-gray-600 mb-4">
+Place bids for pennies and compete for high-value products at a fraction of their retail price.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+<!-- Feature 3 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-exchange-funds-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Instant Crypto Payouts</h3>
+<p class="text-gray-600 mb-4">
+Receive your winnings and rewards instantly in your crypto wallet without delays or intermediaries.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+<!-- Feature 4 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-stack-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Staking & Rewards</h3>
+<p class="text-gray-600 mb-4">
+Stake your B4P tokens to earn passive income and unlock exclusive auction benefits and discounts.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+<!-- Feature 5 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-gift-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Premium Products</h3>
+<p class="text-gray-600 mb-4">
+Bid on high-quality, real-world items including electronics, gift cards, and exclusive collectibles.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+<!-- Feature 6 -->
+<div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+<i class="ri-global-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Global Accessibility</h3>
+<p class="text-gray-600 mb-4">
+Participate in auctions from anywhere in the world with no geographical restrictions.
+</p>
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+Learn more <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories & Slideshow -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Product Categories</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Browse our extensive collection of premium products across various categories
+</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-12">
+<!-- Apple -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-apple-fill ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Apple</span>
+</button>
+<!-- Bid Packs -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-coin-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Bid Packs</span>
+</button>
+<!-- Console & Videogame -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-gamepad-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Console & Videogame</span>
+</button>
+<!-- Crypto & Bitcoin -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-bitcoin-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Crypto & Bitcoin</span>
+</button>
+<!-- Electronics & Computers -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-computer-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Electronics & Computers</span>
+</button>
+<!-- Fitness -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Fitness</span>
+</button>
+<!-- Gadgets -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-device-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Gadgets</span>
+</button>
+<!-- Garden & Tools -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-plant-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Garden & Tools</span>
+</button>
+<!-- Gift Card -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gift-card">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-gift-2-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Gift Card</span>
+</button>
+<!-- Health & Beauty -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="health">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-hearts-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Health & Beauty</span>
+</button>
+<!-- Hobbies & Toys -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="hobbies">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-brush-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Hobbies & Toys</span>
+</button>
+<!-- Kitchen & Dining -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="kitchen">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-restaurant-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Kitchen & Dining</span>
+</button>
+<!-- Luxury -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="luxury">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-vip-crown-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Luxury</span>
+</button>
+<!-- Pet Food & Care -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="pet">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-footprint-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Pet Food & Care</span>
+</button>
+<!-- Real Estate -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="real-estate">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-home-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Real Estate</span>
+</button>
+<!-- Secret Love -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="secret-love">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-heart-2-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Secret Love</span>
+</button>
+<!-- Tickets & Events -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="tickets">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-ticket-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Tickets & Events</span>
+</button>
+<!-- Travels & Holidays -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="travels">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-plane-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Travels & Holidays</span>
+</button>
+<!-- Vehicles -->
+<button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="vehicles">
+<div class="w-12 h-12 flex items-center justify-center mb-3">
+<i class="ri-car-line ri-2x text-gray-700"></i>
+</div>
+<span class="font-medium text-gray-900">Vehicles</span>
+</button>
+</div>
+<!-- Slideshow Container -->
+<div class="relative bg-white rounded-xl shadow-lg overflow-hidden">
+<div class="aspect-w-16 aspect-h-9">
+<div id="slideshow" class="relative w-full h-[600px] overflow-hidden">
+<!-- Slides will be dynamically inserted here -->
+</div>
+</div>
+<!-- Navigation Arrows -->
+<button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
+<i class="ri-arrow-left-s-line ri-2x text-gray-700"></i>
+</button>
+<button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
+<i class="ri-arrow-right-s-line ri-2x text-gray-700"></i>
+</button>
+<!-- Slide Indicators -->
+<div id="slideIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+</div>
+</div>
+</div>
+</section>
+<!-- Live Auctions -->
+<section id="auctions" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Live Auctions</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Browse our ongoing auctions and place your bids to win premium products
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Auction 1 -->
+<div class="auction-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100 transition-all duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20product%20photo%20of%20the%20latest%20Apple%20iPhone%2015%20Pro%20Max%20in%20titanium%20blue%20color%20against%20a%20clean%20white%20background.%20The%20phone%20is%20displayed%20at%20an%20angle%20showing%20its%20premium%20design%2C%20triple%20camera%20system%2C%20and%20sleek%20profile.%20Studio%20lighting%20with%20soft%20shadows.%20High-quality%20commercial%20product%20photography.&width=600&height=400&seq=3&orientation=landscape" alt="iPhone 15 Pro Max" class="w-full h-60 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full auction-timer">
+Ends in 01:23:45
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-900">iPhone 15 Pro Max - 256GB</h3>
+<div class="flex justify-between items-center mb-4">
+<div class="text-gray-600">
+<span class="font-medium">Current bid:</span> $1.25
+</div>
+<div class="text-gray-600">
+<span class="font-medium">Retail value:</span> $1,199
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-sm mb-1">
+<span>Bids: 187</span>
+<span>Max bids: 500</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 37%"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-sm text-gray-600">
+<span class="font-medium">Top bidder:</span> 0x7a3B...4f2E
+</div>
+<button class="px-4 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap">
+Place Bid
+</button>
+</div>
+</div>
+</div>
+<!-- Auction 2 -->
+<div class="auction-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100 transition-all duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20product%20photo%20of%20a%20PlayStation%205%20console%20with%20controller%20against%20a%20clean%20white%20background.%20The%20gaming%20console%20is%20displayed%20at%20an%20angle%20showing%20its%20distinctive%20white%20curved%20design%20and%20blue%20LED%20lighting.%20Studio%20lighting%20with%20soft%20shadows.%20High-quality%20commercial%20product%20photography.&width=600&height=400&seq=4&orientation=landscape" alt="PlayStation 5" class="w-full h-60 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full auction-timer">
+Ends in 03:45:12
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-900">PlayStation 5 Digital Edition</h3>
+<div class="flex justify-between items-center mb-4">
+<div class="text-gray-600">
+<span class="font-medium">Current bid:</span> $0.87
+</div>
+<div class="text-gray-600">
+<span class="font-medium">Retail value:</span> $399
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-sm mb-1">
+<span>Bids: 142</span>
+<span>Max bids: 300</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 47%"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-sm text-gray-600">
+<span class="font-medium">Top bidder:</span> 0x3c5D...9a1F
+</div>
+<button class="px-4 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap">
+Place Bid
+</button>
+</div>
+</div>
+</div>
+<!-- Auction 3 -->
+<div class="auction-card bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100 transition-all duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20product%20photo%20of%20a%20MacBook%20Air%20M2%20laptop%20against%20a%20clean%20white%20background.%20The%20laptop%20is%20displayed%20at%20an%20angle%20with%20the%20screen%20open%20showing%20a%20colorful%20wallpaper.%20The%20sleek%20aluminum%20design%20is%20clearly%20visible.%20Studio%20lighting%20with%20soft%20shadows.%20High-quality%20commercial%20product%20photography.&width=600&height=400&seq=5&orientation=landscape" alt="MacBook Air M2" class="w-full h-60 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full auction-timer">
+Ends in 05:12:33
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-900">MacBook Air M2 - 512GB</h3>
+<div class="flex justify-between items-center mb-4">
+<div class="text-gray-600">
+<span class="font-medium">Current bid:</span> $2.13
+</div>
+<div class="text-gray-600">
+<span class="font-medium">Retail value:</span> $1,499
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-sm mb-1">
+<span>Bids: 235</span>
+<span>Max bids: 600</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 39%"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-sm text-gray-600">
+<span class="font-medium">Top bidder:</span> 0x9f2E...8c4A
+</div>
+<button class="px-4 py-2 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap">
+Place Bid
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="px-8 py-3 bg-white text-primary border border-primary hover:bg-gray-50 !rounded-button font-medium transition-colors whitespace-nowrap">
+View All Auctions
+</button>
+</div>
+</div>
+</section>
+<!-- Token Utility -->
+<section id="token" class="py-20 bg-gray-50 overflow-hidden">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">B4P Token Utility</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Our native token powers the entire BID4PENNY ecosystem with multiple use cases
+</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+<h3 class="text-2xl font-semibold mb-6 text-gray-900">Token Use Cases</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-auction-line text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-1 text-gray-900">Bidding Credits</h4>
+<p class="text-gray-600">Purchase bidding credits at a discount when using B4P tokens</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-award-line text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-1 text-gray-900">Platform Rewards</h4>
+<p class="text-gray-600">Earn B4P tokens for participating in auctions and referring friends</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-stack-line text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-1 text-gray-900">Staking</h4>
+<p class="text-gray-600">Stake B4P to earn passive income and unlock platform benefits</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+<i class="ri-government-line text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-1 text-gray-900">Governance</h4>
+<p class="text-gray-600">Vote on platform upgrades and new feature proposals</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+<h3 class="text-2xl font-semibold mb-6 text-gray-900">Staking & Rewards</h3>
+<div class="mb-8">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Staking Amount</span>
+<span class="text-primary font-medium">5,000 B4P</span>
+</div>
+<input type="range" min="100" max="10000" value="5000" class="custom-range w-full mb-4" id="staking-amount">
+<div class="flex justify-between text-sm text-gray-500">
+<span>100 B4P</span>
+<span>10,000 B4P</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="text-sm text-gray-600 mb-1">Monthly Rewards</div>
+<div class="text-2xl font-semibold text-gray-900">250 B4P</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="text-sm text-gray-600 mb-1">Annual Yield</div>
+<div class="text-2xl font-semibold text-primary">60%</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="text-sm text-gray-600 mb-1">Bid Discount</div>
+<div class="text-2xl font-semibold text-gray-900">15%</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4">
+<div class="text-sm text-gray-600 mb-1">VIP Auctions</div>
+<div class="text-2xl font-semibold text-gray-900">Unlocked</div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-white hover:bg-primary/90 !rounded-button font-medium transition-colors whitespace-nowrap">
+Stake Now
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20">
+<div class="text-center mb-12">
+<h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Tokenomics</h3>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+B4P has a total supply of 100,000,000 tokens distributed as follows
+</p>
+</div>
+<div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div id="tokenomics-chart" class="h-80"></div>
+<div class="space-y-4">
+<div class="flex items-center">
+<div class="w-4 h-4 rounded-full bg-[rgba(87,181,231,1)] mr-3"></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium text-gray-900">Public Sale</span>
+<span class="font-medium text-gray-900">40%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+<div class="bg-[rgba(87,181,231,1)] h-1.5 rounded-full" style="width: 40%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 rounded-full bg-[rgba(141,211,199,1)] mr-3"></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium text-gray-900">Platform Rewards</span>
+<span class="font-medium text-gray-900">25%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+<div class="bg-[rgba(141,211,199,1)] h-1.5 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 rounded-full bg-[rgba(251,191,114,1)] mr-3"></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium text-gray-900">Team & Advisors</span>
+<span class="font-medium text-gray-900">15%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+<div class="bg-[rgba(251,191,114,1)] h-1.5 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 rounded-full bg-[rgba(252,141,98,1)] mr-3"></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium text-gray-900">Marketing & Partnerships</span>
+<span class="font-medium text-gray-900">10%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+<div class="bg-[rgba(252,141,98,1)] h-1.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 rounded-full bg-[rgba(179,205,227,1)] mr-3"></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium text-gray-900">Liquidity & Reserve</span>
+<span class="font-medium text-gray-900">10%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+<div class="bg-[rgba(179,205,227,1)] h-1.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<a href="#" class="text-primary font-medium hover:underline">
+Download Whitepaper for Full Tokenomics Details
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Partners</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Trusted by leading companies in blockchain and e-commerce
+</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-ethereum-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">Ethereum</span>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-binance-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">Binance</span>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-paypal-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">PayPal</span>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-amazon-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">Amazon</span>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-visa-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">Visa</span>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center mb-2">
+<i class="ri-mastercard-fill ri-2x text-gray-400"></i>
+</div>
+<span class="text-gray-500 font-medium">Mastercard</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Roadmap -->
+<section id="roadmap" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Roadmap</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+The journey of BID4PENNY from concept to global auction platform
+</p>
+</div>
+<div class="relative max-w-4xl mx-auto">
+<div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+<!-- Q2 2023 -->
+<div class="relative z-10 mb-12">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-0 md:w-5/12 md:mr-auto">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-3">
+Q2 2023 - Completed
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Concept & Planning</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Market research and concept development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Team formation and initial funding</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Whitepaper and tokenomics design</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Q4 2023 -->
+<div class="relative z-10 mb-12">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-auto md:w-5/12">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-3">
+Q4 2023 - Completed
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Development Phase</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Smart contract development and auditing</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Platform MVP development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Private testing and feedback collection</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Q1 2024 -->
+<div class="relative z-10 mb-12">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-0 md:w-5/12 md:mr-auto">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-3">
+Q1 2024 - Completed
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Token Launch</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>B4P token creation and distribution</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Initial DEX offering and liquidity provision</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Exchange listings and marketing campaign</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Q2 2024 -->
+<div class="relative z-10 mb-12">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-auto md:w-5/12">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-600 font-medium text-sm mb-3">
+Q2 2024 - Current Phase
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Platform Beta Launch</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-green-500 mt-1 mr-2"></i>
+<span>Beta platform launch with limited auctions</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-yellow-500 mt-1 mr-2"></i>
+<span>Staking mechanism implementation</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-yellow-500 mt-1 mr-2"></i>
+<span>Community growth and user acquisition</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Q4 2024 -->
+<div class="relative z-10 mb-12">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-0 md:w-5/12 md:mr-auto">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 font-medium text-sm mb-3">
+Q4 2024 - Upcoming
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Full Platform Launch</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>Full platform launch with all features</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>Mobile app release for iOS and Android</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>Expansion of product categories and partnerships</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Q2 2025 -->
+<div class="relative z-10">
+<div class="timeline-dot"></div>
+<div class="ml-12 md:ml-auto md:w-5/12">
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<div class="inline-block px-3 py-1 rounded-full bg-gray-200 text-gray-600 font-medium text-sm mb-3">
+Q2 2025 - Future
+</div>
+<h3 class="text-xl font-semibold mb-3 text-gray-900">Global Expansion</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>International expansion and localization</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>Integration with major e-commerce platforms</span>
+</li>
+<li class="flex items-start">
+<i class="ri-time-line text-gray-400 mt-1 mr-2"></i>
+<span>Advanced features and platform upgrades</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Frequently Asked Questions</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Everything you need to know about BID4PENNY
+</p>
+</div>
+<div class="max-w-3xl mx-auto">
+<div class="space-y-6">
+<!-- FAQ Item 1 -->
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(this)">
+<h3 class="text-xl font-semibold text-gray-900">How do BID4PENNY auctions work?</h3>
+<i class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"></i>
+</button>
+<div class="faq-content hidden mt-4">
+<p class="text-gray-600">
+BID4PENNY auctions work on a penny auction model where each bid costs a small amount (typically $0.50-$1.00). Each bid increases the auction price by a penny and extends the auction timer. The last person to bid when the timer reaches zero wins the item at the final auction price, which is typically much lower than retail value.
+</p>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(this)">
+<h3 class="text-xl font-semibold text-gray-900">What is the B4P token and how is it used?</h3>
+<i class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"></i>
+</button>
+<div class="faq-content hidden mt-4">
+<p class="text-gray-600">
+B4P is the native utility token of the BID4PENNY platform. It can be used to purchase bid credits at a discount, earn rewards for platform participation, stake for passive income, and vote on platform governance decisions. The token is built on the Ethereum blockchain as an ERC-20 token.
+</p>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(this)">
+<h3 class="text-xl font-semibold text-gray-900">How do I get started with BID4PENNY?</h3>
+<i class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"></i>
+</button>
+<div class="faq-content hidden mt-4">
+<p class="text-gray-600">
+To get started, create an account on BID4PENNY, connect your crypto wallet, and purchase bid credits using B4P tokens, PayPal, or credit card. Once you have credits, you can browse active auctions and start bidding. We recommend starting with smaller auctions to understand the platform mechanics before participating in high-value auctions.
+</p>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(this)">
+<h3 class="text-xl font-semibold text-gray-900">How is BID4PENNY different from traditional auctions?</h3>
+<i class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"></i>
+</button>
+<div class="faq-content hidden mt-4">
+<p class="text-gray-600">
+BID4PENNY differs from traditional auctions in several ways: each bid costs a small fee, bids increase the price by only a penny, the auction timer extends with each bid, and all transactions are recorded on the blockchain for transparency. Additionally, participants can earn crypto rewards even if they don't win the auction.
+</p>
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="bg-white rounded-lg p-6 shadow-md border border-gray-100">
+<button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(this)">
+<h3 class="text-xl font-semibold text-gray-900">What happens if I win an auction?</h3>
+<i class="ri-arrow-down-s-line ri-lg text-gray-500 faq-icon"></i>
+</button>
+<div class="faq-content hidden mt-4">
+<p class="text-gray-600">
+If you win an auction, you'll pay the final auction price (which is typically much lower than retail value) and receive the item shipped to your registered address. You'll also receive B4P token rewards for winning. All shipping costs are included in the auction, and most items ship within 5-7 business days.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-primary/90 to-secondary/90 text-white">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Bidding?</h2>
+<p class="text-xl mb-8 max-w-2xl mx-auto">
+Join thousands of users already winning premium products at a fraction of their retail price
+</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-8 py-3 bg-white text-primary hover:bg-gray-100 font-semibold !rounded-button whitespace-nowrap">
+Create Account
+</button>
+<button class="px-8 py-3 bg-transparent hover:bg-white/10 text-white border border-white font-semibold !rounded-button whitespace-nowrap">
+Browse Auctions
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">BID4PENNY</a>
+<p class="text-gray-400 mb-6">
+The next generation blockchain-powered auction platform where transparency meets opportunity.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-telegram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-discord-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-medium-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Live Auctions</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">B4P Token</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Staking</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Resources</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Whitepaper</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">
+Stay updated with the latest auctions and platform news
+</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-l-button bg-gray-800 border-none text-white focus:outline-none focus:ring-2 focus:ring-primary">
+<button type="submit" class="px-4 py-2 bg-primary text-white !rounded-r-button hover:bg-primary/90 whitespace-nowrap">
+Subscribe
+</button>
+</div>
+</form>
+<div class="flex items-center">
+<input type="checkbox" id="newsletter-consent" class="custom-checkbox mr-2">
+<label for="newsletter-consent" class="text-sm text-gray-400">I agree to receive marketing emails</label>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<div class="text-gray-500 text-sm mb-4 md:mb-0">
+&copy; 2025 BID4PENNY. All rights reserved.
+</div>
+<div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+<a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+<a href="#" class="hover:text-white transition-colors">Contact Us</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Category slideshow functionality
+const categoryImages = {
+apple: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20iPhone%2015%20Pro%20Max%20in%20titanium%20finish%20against%20clean%20white%20background%2C%20showing%20premium%20design%20and%20camera%20system&width=1280&height=720&seq=10&orientation=landscape",
+title: "iPhone 15 Pro Max"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20MacBook%20Air%20M2%20in%20space%20gray%2C%20displaying%20sleek%20design%20and%20retina%20display%20against%20white%20background&width=1280&height=720&seq=11&orientation=landscape",
+title: "MacBook Air M2"
+}
+],
+"bid-packs": [
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20premium%20bid%20pack%20tokens%20with%20golden%20glow%20effect%20against%20dark%20background&width=1280&height=720&seq=13&orientation=landscape",
+title: "Premium Bid Pack"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20starter%20bid%20pack%20bundle%20with%20special%20offer%20badge%20against%20gradient%20background&width=1280&height=720&seq=14&orientation=landscape",
+title: "Starter Bid Pack"
+}
+],
+console: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20PlayStation%205%20with%20DualSense%20controller%20against%20clean%20studio%20background&width=1280&height=720&seq=15&orientation=landscape",
+title: "PlayStation 5"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Xbox%20Series%20X%20with%20wireless%20controller%20against%20minimalist%20background&width=1280&height=720&seq=16&orientation=landscape",
+title: "Xbox Series X"
+}
+],
+crypto: [
+{
+url: "https://readdy.ai/api/search-image?query=3D%20rendering%20of%20golden%20Bitcoin%20coin%20with%20digital%20network%20effect%20against%20dark%20background&width=1280&height=720&seq=17&orientation=landscape",
+title: "Bitcoin"
+},
+{
+url: "https://readdy.ai/api/search-image?query=3D%20illustration%20of%20cryptocurrency%20hardware%20wallet%20with%20security%20features%20highlighted%20against%20tech%20background&width=1280&height=720&seq=18&orientation=landscape",
+title: "Hardware Wallet"
+}
+],
+electronic: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20high-end%20gaming%20laptop%20with%20RGB%20keyboard%20against%20dark%20background&width=1280&height=720&seq=19&orientation=landscape",
+title: "Gaming Laptop"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%204K%20curved%20gaming%20monitor%20with%20minimal%20bezels%20against%20studio%20background&width=1280&height=720&seq=20&orientation=landscape",
+title: "4K Monitor"
+}
+],
+fitness: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20fitness%20watch%20with%20heart%20rate%20monitoring%20display%20against%20light%20background&width=1280&height=720&seq=21&orientation=landscape",
+title: "Smart Fitness Watch"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20premium%20wireless%20earbuds%20with%20charging%20case%20against%20minimal%20background&width=1280&height=720&seq=22&orientation=landscape",
+title: "Wireless Earbuds"
+}
+],
+gadgets: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20drone%20with%204K%20camera%20against%20cloudy%20sky%20background&width=1280&height=720&seq=23&orientation=landscape",
+title: "4K Drone"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20VR%20headset%20with%20controllers%20against%20futuristic%20background&width=1280&height=720&seq=24&orientation=landscape",
+title: "VR Headset"
+}
+],
+garden: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20cordless%20electric%20lawn%20mower%20against%20garden%20background&width=1280&height=720&seq=25&orientation=landscape",
+title: "Electric Lawn Mower"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20garden%20watering%20system%20with%20mobile%20app%20control%20against%20garden%20background&width=1280&height=720&seq=26&orientation=landscape",
+title: "Smart Watering System"
+}
+],
+"gift-card": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20digital%20gift%20cards%20collection%20with%20modern%20design%20against%20clean%20background&width=1280&height=720&seq=27&orientation=landscape",
+title: "Premium Gift Cards"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20membership%20cards%20with%20luxury%20design%20elements%20against%20elegant%20background&width=1280&height=720&seq=28&orientation=landscape",
+title: "Exclusive Memberships"
+}
+],
+health: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20skincare%20and%20beauty%20products%20collection%20against%20clean%20white%20background&width=1280&height=720&seq=29&orientation=landscape",
+title: "Premium Beauty Collection"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20wellness%20and%20health%20supplements%20against%20minimalist%20background&width=1280&height=720&seq=30&orientation=landscape",
+title: "Wellness Essentials"
+}
+],
+hobbies: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20art%20supplies%20and%20creative%20tools%20collection%20against%20studio%20background&width=1280&height=720&seq=31&orientation=landscape",
+title: "Creative Arts Collection"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20collectible%20toys%20and%20limited%20editions%20against%20display%20background&width=1280&height=720&seq=32&orientation=landscape",
+title: "Collectible Treasures"
+}
+],
+kitchen: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20kitchen%20appliances%20and%20cookware%20set%20against%20modern%20kitchen%20background&width=1280&height=720&seq=33&orientation=landscape",
+title: "Premium Kitchen Set"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20dining%20set%20and%20tableware%20collection%20against%20elegant%20background&width=1280&height=720&seq=34&orientation=landscape",
+title: "Luxury Dining Collection"
+}
+],
+luxury: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20watches%20and%20jewelry%20collection%20against%20premium%20dark%20background&width=1280&height=720&seq=35&orientation=landscape",
+title: "Luxury Timepieces"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20designer%20handbags%20and%20accessories%20against%20elegant%20background&width=1280&height=720&seq=36&orientation=landscape",
+title: "Designer Accessories"
+}
+],
+pet: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20pet%20food%20and%20nutrition%20products%20against%20clean%20background&width=1280&height=720&seq=37&orientation=landscape",
+title: "Premium Pet Nutrition"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20pet%20accessories%20and%20care%20products%20against%20modern%20background&width=1280&height=720&seq=38&orientation=landscape",
+title: "Luxury Pet Care"
+}
+],
+"real-estate": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20modern%20house%20exterior%20with%20pool%20against%20sunset%20background&width=1280&height=720&seq=39&orientation=landscape",
+title: "Luxury Residences"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20apartment%20interior%20with%20modern%20design%20against%20city%20view&width=1280&height=720&seq=40&orientation=landscape",
+title: "Premium Properties"
+}
+],
+"secret-love": [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20romantic%20gift%20packages%20and%20surprise%20boxes%20against%20elegant%20background&width=1280&height=720&seq=41&orientation=landscape",
+title: "Romantic Surprises"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20date%20night%20experiences%20and%20couple%20activities%20against%20romantic%20background&width=1280&height=720&seq=42&orientation=landscape",
+title: "Special Moments"
+}
+],
+tickets: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20concert%20and%20festival%20tickets%20with%20VIP%20passes%20against%20event%20background&width=1280&height=720&seq=43&orientation=landscape",
+title: "VIP Event Access"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20sports%20event%20tickets%20and%20packages%20against%20stadium%20background&width=1280&height=720&seq=44&orientation=landscape",
+title: "Sports Experiences"
+}
+],
+travels: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20travel%20packages%20and%20vacation%20experiences%20against%20paradise%20beach%20background&width=1280&height=720&seq=45&orientation=landscape",
+title: "Luxury Getaways"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20holiday%20packages%20and%20adventure%20tours%20against%20scenic%20background&width=1280&height=720&seq=46&orientation=landscape",
+title: "Adventure Packages"
+}
+],
+vehicles: [
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20cars%20and%20premium%20vehicles%20against%20modern%20showroom%20background&width=1280&height=720&seq=47&orientation=landscape",
+title: "Luxury Vehicles"
+},
+{
+url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20motorcycles%20and%20exclusive%20models%20against%20studio%20background&width=1280&height=720&seq=48&orientation=landscape",
+title: "Premium Motorcycles"
+}
+]
+};
+let currentCategory = 'apple';
+let currentSlideIndex = 0;
+let slideInterval;
+function createSlideElement(imageData) {
+const slide = document.createElement('div');
+slide.className = 'absolute inset-0 transition-opacity duration-500 opacity-0';
+slide.innerHTML = `
+<img src="${imageData.url}" alt="${imageData.title}" class="w-full h-full object-cover">
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+<h3 class="text-white text-2xl font-semibold">${imageData.title}</h3>
+</div>
+`;
+return slide;
+}
+function updateSlideshow(category) {
+const slideshow = document.getElementById('slideshow');
+const indicators = document.getElementById('slideIndicators');
+currentCategory = category;
+currentSlideIndex = 0;
+// Clear existing slides and indicators
+slideshow.innerHTML = '';
+indicators.innerHTML = '';
+// Create new slides and indicators
+categoryImages[category].forEach((imageData, index) => {
+const slide = createSlideElement(imageData);
+if (index === 0) slide.classList.remove('opacity-0');
+slideshow.appendChild(slide);
+const indicator = document.createElement('button');
+indicator.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/50'}`;
+indicator.onclick = () => showSlide(index);
+indicators.appendChild(indicator);
+});
+// Reset interval
+if (slideInterval) clearInterval(slideInterval);
+startSlideshow();
+}
+function showSlide(index) {
+const slides = document.getElementById('slideshow').children;
+const indicators = document.getElementById('slideIndicators').children;
+// Hide current slide
+slides[currentSlideIndex].classList.add('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white', 'bg-white/50');
+// Show new slide
+currentSlideIndex = index;
+slides[currentSlideIndex].classList.remove('opacity-0');
+indicators[currentSlideIndex].classList.replace('bg-white/50', 'bg-white');
+}
+function nextSlide() {
+const nextIndex = (currentSlideIndex + 1) % categoryImages[currentCategory].length;
+showSlide(nextIndex);
+}
+function prevSlide() {
+const prevIndex = (currentSlideIndex - 1 + categoryImages[currentCategory].length) % categoryImages[currentCategory].length;
+showSlide(prevIndex);
+}
+function startSlideshow() {
+slideInterval = setInterval(nextSlide, 5000);
+}
+// Initialize slideshow
+updateSlideshow('apple');
+// Add event listeners
+document.querySelectorAll('.category-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+// Remove active state from all buttons
+document.querySelectorAll('.category-btn').forEach(b => {
+b.classList.remove('border-primary');
+b.classList.add('border-gray-100');
+});
+// Add active state to clicked button
+e.currentTarget.classList.remove('border-gray-100');
+e.currentTarget.classList.add('border-primary');
+updateSlideshow(e.currentTarget.dataset.category);
+});
+});
+document.getElementById('nextSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+nextSlide();
+startSlideshow();
+});
+document.getElementById('prevSlide').addEventListener('click', () => {
+if (slideInterval) clearInterval(slideInterval);
+prevSlide();
+startSlideshow();
+});
+// Add active state to initial category
+document.querySelector('[data-category="apple"]').classList.add('border-primary');
+document.querySelector('[data-category="apple"]').classList.remove('border-gray-100');
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+function toggleMobileMenu(show) {
+if (show) {
+mobileMenu.classList.remove('-translate-y-full');
+mobileMenuOverlay.classList.remove('hidden');
+mobileMenuButton.querySelector('i').classList.remove('ri-menu-line');
+mobileMenuButton.querySelector('i').classList.add('ri-close-line');
+document.body.style.overflow = 'hidden';
+} else {
+mobileMenu.classList.add('-translate-y-full');
+mobileMenuOverlay.classList.add('hidden');
+mobileMenuButton.querySelector('i').classList.remove('ri-close-line');
+mobileMenuButton.querySelector('i').classList.add('ri-menu-line');
+document.body.style.overflow = '';
+}
+}
+mobileMenuButton.addEventListener('click', function() {
+const isOpen = !mobileMenu.classList.contains('-translate-y-full');
+toggleMobileMenu(!isOpen);
+});
+// Close mobile menu when clicking overlay
+mobileMenuOverlay.addEventListener('click', () => {
+toggleMobileMenu(false);
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+toggleMobileMenu(false);
+});
+});
+// Close mobile menu on window resize if screen becomes larger
+window.addEventListener('resize', () => {
+if (window.innerWidth >= 768) {
+toggleMobileMenu(false);
+}
+});
+// Initialize tokenomics chart
+const chartDom = document.getElementById('tokenomics-chart');
+const myChart = echarts.init(chartDom);
+const option = {
+animation: false,
+tooltip: {
+trigger: 'item',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+borderColor: '#f1f5f9',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Token Distribution',
+type: 'pie',
+radius: ['40%', '70%'],
+avoidLabelOverlap: false,
+itemStyle: {
+borderRadius: 8,
+borderColor: '#fff',
+borderWidth: 2
+},
+label: {
+show: false
+},
+emphasis: {
+label: {
+show: false
+}
+},
+data: [
+{ value: 40, name: 'Public Sale', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+{ value: 25, name: 'Platform Rewards', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+{ value: 15, name: 'Team & Advisors', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+{ value: 10, name: 'Marketing & Partnerships', itemStyle: { color: 'rgba(252, 141, 98, 1)' } },
+{ value: 10, name: 'Liquidity & Reserve', itemStyle: { color: 'rgba(179, 205, 227, 1)' } }
+]
+}
+]
+};
+myChart.setOption(option);
+// Responsive chart
+window.addEventListener('resize', function() {
+myChart.resize();
+});
+// FAQ toggle
+window.toggleFaq = function(element) {
+const content = element.nextElementSibling;
+const icon = element.querySelector('.faq-icon');
+if (content.classList.contains('hidden')) {
+content.classList.remove('hidden');
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+} else {
+content.classList.add('hidden');
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+}
+};
+// Staking slider
+const stakingSlider = document.getElementById('staking-amount');
+stakingSlider.addEventListener('input', function() {
+const stakingAmount = parseInt(this.value);
+const monthlyRewards = Math.round(stakingAmount * 0.05);
+const annualYield = 60;
+const bidDiscount = stakingAmount >= 5000 ? 15 : (stakingAmount >= 1000 ? 10 : 5);
+const vipStatus = stakingAmount >= 5000 ? 'Unlocked' : 'Locked';
+document.querySelector('.bg-gray-50:nth-child(1) .text-2xl').textContent = `${monthlyRewards} B4P`;
+document.querySelector('.bg-gray-50:nth-child(2) .text-2xl').textContent = `${annualYield}%`;
+document.querySelector('.bg-gray-50:nth-child(3) .text-2xl').textContent = `${bidDiscount}%`;
+document.querySelector('.bg-gray-50:nth-child(4) .text-2xl').textContent = vipStatus;
+});
+});
+</script>
+</body>
+</html>

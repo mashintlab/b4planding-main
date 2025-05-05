@@ -1066,7 +1066,7 @@ Tournaments and reward pools.
     
     
     <!-- Categories & Slideshow -->
-<section id="category" class="py-20 bg-white">
+<section class="py-20 bg-white">
   <div class="container mx-auto px-4">
   <div class="text-center mb-16">
   <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Auction Categories</h2>
@@ -1074,62 +1074,139 @@ Tournaments and reward pools.
   Browse our extensive collection of premium products across various categories
   </p>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-  <!-- Category 1 -->
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-12">
+  <!-- Apple -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-apple-fill ri-2x"></i>
+  <i class="ri-apple-fill ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Apple</span>
   </button>
-  <!-- Category 2 -->
+  <!-- Bid Packs -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-coin-line ri-2x"></i>
+  <i class="ri-coin-line ri-2x text-gray-700"></i>
   </div>
-  <span class="font-medium text-gray-900">Gift Bids</span>
+  <span class="font-medium text-gray-900">Bid Packs</span>
   </button>
-  <!-- Category 3 -->
+  <!-- Console & Videogame -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-gamepad-line ri-2x "></i>
+  <i class="ri-gamepad-line ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Console & Videogame</span>
   </button>
-  <!-- Category 4 -->
+  <!-- Crypto & Bitcoin -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-bitcoin-line ri-2x "></i>
+  <i class="ri-bitcoin-line ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Crypto & Bitcoin</span>
   </button>
-  <!-- Category 5 -->
+  <!-- Electronics & Computers -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-computer-line ri-2x "></i>
+  <i class="ri-computer-line ri-2x text-gray-700"></i>
   </div>
-  <span class="font-medium text-gray-900">Electronic & Computer</span>
+  <span class="font-medium text-gray-900">Electronics & Computers</span>
   </button>
-  <!-- Category 6 -->
+  <!-- Fitness -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-heart-pulse-line ri-2x "></i>
+  <i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Fitness</span>
   </button>
-  <!-- Category 7 -->
+  <!-- Gadgets -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-device-line ri-2x "></i>
+  <i class="ri-device-line ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Gadgets</span>
   </button>
-  <!-- Category 8 -->
+  <!-- Garden & Tools -->
   <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
   <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-plant-line ri-2x "></i>
+  <i class="ri-plant-line ri-2x text-gray-700"></i>
   </div>
   <span class="font-medium text-gray-900">Garden & Tools</span>
+  </button>
+  <!-- Gift Card -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gift-card">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-gift-2-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Gift Card</span>
+  </button>
+  <!-- Health & Beauty -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="health">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-hearts-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Health & Beauty</span>
+  </button>
+  <!-- Hobbies & Toys -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="hobbies">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-brush-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Hobbies & Toys</span>
+  </button>
+  <!-- Kitchen & Dining -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="kitchen">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-restaurant-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Kitchen & Dining</span>
+  </button>
+  <!-- Luxury -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="luxury">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-vip-crown-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Luxury</span>
+  </button>
+  <!-- Pet Food & Care -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="pet">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-footprint-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Pet Food & Care</span>
+  </button>
+  <!-- Real Estate -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="real-estate">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-home-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Real Estate</span>
+  </button>
+  <!-- Secret Love -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="secret-love">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-heart-2-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Secret Love</span>
+  </button>
+  <!-- Tickets & Events -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="tickets">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-ticket-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Tickets & Events</span>
+  </button>
+  <!-- Travels & Holidays -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="travels">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-plane-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Travels & Holidays</span>
+  </button>
+  <!-- Vehicles -->
+  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="vehicles">
+  <div class="w-12 h-12 flex items-center justify-center mb-3">
+  <i class="ri-car-line ri-2x text-gray-700"></i>
+  </div>
+  <span class="font-medium text-gray-900">Vehicles</span>
   </button>
   </div>
   <!-- Slideshow Container -->
@@ -1140,10 +1217,10 @@ Tournaments and reward pools.
   </div>
   </div>
   <!-- Navigation Arrows -->
-  <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors duration-600 ease-in-out ">
+  <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
   <i class="ri-arrow-left-s-line ri-2x text-gray-700"></i>
   </button>
-  <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors duration-600 ease-in-out ">
+  <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 shadow-lg flex items-center justify-center hover:bg-white transition-colors">
   <i class="ri-arrow-right-s-line ri-2x text-gray-700"></i>
   </button>
   <!-- Slide Indicators -->
@@ -2131,91 +2208,236 @@ Tournaments and reward pools.
 
 // Category slideshow functionality
 const categoryImages = {
-apple: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20iPhone%2015%20Pro%20Max%20in%20titanium%20finish%20against%20clean%20white%20background%2C%20showing%20premium%20design%20and%20camera%20system&width=1280&height=720&seq=10&orientation=landscape",
-title: "iPhone 15 Pro Max"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20MacBook%20Air%20M2%20in%20space%20gray%2C%20displaying%20sleek%20design%20and%20retina%20display%20against%20white%20background&width=1280&height=720&seq=11&orientation=landscape",
-title: "MacBook Air M2"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Apple%20Watch%20Series%209%20in%20stainless%20steel%20case%20with%20sport%20band%20against%20white%20background&width=1280&height=720&seq=12&orientation=landscape",
-title: "Apple Watch Series 9"
-}
-],
-"bid-packs": [
-{
-url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20premium%20bid%20pack%20tokens%20with%20golden%20glow%20effect%20against%20dark%20background&width=1280&height=720&seq=13&orientation=landscape",
-title: "Premium Bid Pack"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20starter%20bid%20pack%20bundle%20with%20special%20offer%20badge%20against%20gradient%20background&width=1280&height=720&seq=14&orientation=landscape",
-title: "Starter Bid Pack"
-}
-],
-console: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20PlayStation%205%20with%20DualSense%20controller%20against%20clean%20studio%20background&width=1280&height=720&seq=15&orientation=landscape",
-title: "PlayStation 5"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Xbox%20Series%20X%20with%20wireless%20controller%20against%20minimalist%20background&width=1280&height=720&seq=16&orientation=landscape",
-title: "Xbox Series X"
-}
-],
-crypto: [
-{
-url: "https://readdy.ai/api/search-image?query=3D%20rendering%20of%20golden%20Bitcoin%20coin%20with%20digital%20network%20effect%20against%20dark%20background&width=1280&height=720&seq=17&orientation=landscape",
-title: "Bitcoin"
-},
-{
-url: "https://readdy.ai/api/search-image?query=3D%20illustration%20of%20cryptocurrency%20hardware%20wallet%20with%20security%20features%20highlighted%20against%20tech%20background&width=1280&height=720&seq=18&orientation=landscape",
-title: "Hardware Wallet"
-}
-],
-electronic: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20high-end%20gaming%20laptop%20with%20RGB%20keyboard%20against%20dark%20background&width=1280&height=720&seq=19&orientation=landscape",
-title: "Gaming Laptop"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%204K%20curved%20gaming%20monitor%20with%20minimal%20bezels%20against%20studio%20background&width=1280&height=720&seq=20&orientation=landscape",
-title: "4K Monitor"
-}
-],
-fitness: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20fitness%20watch%20with%20heart%20rate%20monitoring%20display%20against%20light%20background&width=1280&height=720&seq=21&orientation=landscape",
-title: "Smart Fitness Watch"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20premium%20wireless%20earbuds%20with%20charging%20case%20against%20minimal%20background&width=1280&height=720&seq=22&orientation=landscape",
-title: "Wireless Earbuds"
-}
-],
-gadgets: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20drone%20with%204K%20camera%20against%20cloudy%20sky%20background&width=1280&height=720&seq=23&orientation=landscape",
-title: "4K Drone"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20VR%20headset%20with%20controllers%20against%20futuristic%20background&width=1280&height=720&seq=24&orientation=landscape",
-title: "VR Headset"
-}
-],
-garden: [
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20cordless%20electric%20lawn%20mower%20against%20garden%20background&width=1280&height=720&seq=25&orientation=landscape",
-title: "Electric Lawn Mower"
-},
-{
-url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20garden%20watering%20system%20with%20mobile%20app%20control%20against%20garden%20background&width=1280&height=720&seq=26&orientation=landscape",
-title: "Smart Watering System"
-}
-]
-};
+          apple: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20iPhone%2015%20Pro%20Max%20in%20titanium%20finish%20against%20clean%20white%20background%2C%20showing%20premium%20design%20and%20camera%20system&width=1280&height=720&seq=10&orientation=landscape",
+              title: "iPhone 15 Pro Max",
+              backlink: "https://www.bid4penny.com/categories/Apple-3",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20MacBook%20Air%20M2%20in%20space%20gray%2C%20displaying%20sleek%20design%20and%20retina%20display%20against%20white%20background&width=1280&height=720&seq=11&orientation=landscape",
+              title: "MacBook Air M2",
+              backlink: "https://www.bid4penny.com/categories/Apple-3",
+            },
+          ],
+          "bid-packs": [
+            {
+              url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20premium%20bid%20pack%20tokens%20with%20golden%20glow%20effect%20against%20dark%20background&width=1280&height=720&seq=13&orientation=landscape",
+              title: "Premium Bid Pack",
+              backlink: "https://www.bid4penny.com/categories/Bid-Packs-11",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Digital%20illustration%20of%20starter%20bid%20pack%20bundle%20with%20special%20offer%20badge%20against%20gradient%20background&width=1280&height=720&seq=14&orientation=landscape",
+              title: "Starter Bid Pack",
+              backlink: "https://www.bid4penny.com/categories/Bid-Packs-11",
+            },
+          ],
+          console: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20PlayStation%205%20with%20DualSense%20controller%20against%20clean%20studio%20background&width=1280&height=720&seq=15&orientation=landscape",
+              title: "PlayStation 5",
+              backlink: "https://www.bid4penny.com/categories/Console-and-Videogame-85"
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20Xbox%20Series%20X%20with%20wireless%20controller%20against%20minimalist%20background&width=1280&height=720&seq=16&orientation=landscape",
+              title: "Xbox Series X",
+              backlink: "https://www.bid4penny.com/categories/Console-and-Videogame-85"
+            },
+          ],
+          crypto: [
+            {
+              url: "https://readdy.ai/api/search-image?query=3D%20rendering%20of%20golden%20Bitcoin%20coin%20with%20digital%20network%20effect%20against%20dark%20background&width=1280&height=720&seq=17&orientation=landscape",
+              title: "Bitcoin",
+              backlink: "https://www.bid4penny.com/categories/Crypto-and-Bitcoin-102",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=3D%20illustration%20of%20cryptocurrency%20hardware%20wallet%20with%20security%20features%20highlighted%20against%20tech%20background&width=1280&height=720&seq=18&orientation=landscape",
+              title: "Hardware Wallet",
+              backlink: "https://www.bid4penny.com/categories/Crypto-and-Bitcoin-102",
+            },
+          ],
+          electronic: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20high-end%20gaming%20laptop%20with%20RGB%20keyboard%20against%20dark%20background&width=1280&height=720&seq=19&orientation=landscape",
+              title: "Gaming Laptop",
+              backlink: "https://www.bid4penny.com/categories/Electronics-and-Computers-94",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%204K%20curved%20gaming%20monitor%20with%20minimal%20bezels%20against%20studio%20background&width=1280&height=720&seq=20&orientation=landscape",
+              title: "4K Monitor",
+              backlink: "https://www.bid4penny.com/categories/Electronics-and-Computers-94",
+            },
+          ],
+          fitness: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20fitness%20watch%20with%20heart%20rate%20monitoring%20display%20against%20light%20background&width=1280&height=720&seq=21&orientation=landscape",
+              title: "Smart Fitness Watch",
+              backlink: "https://www.bid4penny.com/categories/Fitness-96",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20premium%20wireless%20earbuds%20with%20charging%20case%20against%20minimal%20background&width=1280&height=720&seq=22&orientation=landscape",
+              title: "Wireless Earbuds",
+              backlink: "https://www.bid4penny.com/categories/Fitness-96",
+            },
+          ],
+          gadgets: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20latest%20drone%20with%204K%20camera%20against%20cloudy%20sky%20background&width=1280&height=720&seq=23&orientation=landscape",
+              title: "4K Drone",
+              backlink: "https://www.bid4penny.com/categories/Gadgets-104",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20VR%20headset%20with%20controllers%20against%20futuristic%20background&width=1280&height=720&seq=24&orientation=landscape",
+              title: "VR Headset",
+              backlink: "https://www.bid4penny.com/categories/Gadgets-104",
+            },
+          ],
+          garden: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20cordless%20electric%20lawn%20mower%20against%20garden%20background&width=1280&height=720&seq=25&orientation=landscape",
+              title: "Electric Lawn Mower",
+              backlink: "https://www.bid4penny.com/categories/Garden-and-Tools-98",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20product%20photo%20of%20smart%20garden%20watering%20system%20with%20mobile%20app%20control%20against%20garden%20background&width=1280&height=720&seq=26&orientation=landscape",
+              title: "Smart Watering System",
+              backlink: "https://www.bid4penny.com/categories/Garden-and-Tools-98",
+            },
+          ],
+          "gift-card": [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20digital%20gift%20cards%20collection%20with%20modern%20design%20against%20clean%20background&width=1280&height=720&seq=27&orientation=landscape",
+              title: "Premium Gift Cards",
+              backlink: "https://www.bid4penny.com/categories/Gift-Card-6",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20membership%20cards%20with%20luxury%20design%20elements%20against%20elegant%20background&width=1280&height=720&seq=28&orientation=landscape",
+              title: "Exclusive Memberships",
+              backlink: "https://www.bid4penny.com/categories/Gift-Card-6",
+            },
+          ],
+          health: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20skincare%20and%20beauty%20products%20collection%20against%20clean%20white%20background&width=1280&height=720&seq=29&orientation=landscape",
+              title: "Premium Beauty Collection",
+              backlink: "https://www.bid4penny.com/categories/Health-and-Beauty-99",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20wellness%20and%20health%20supplements%20against%20minimalist%20background&width=1280&height=720&seq=30&orientation=landscape",
+              title: "Wellness Essentials",
+              backlink: "https://www.bid4penny.com/categories/Health-and-Beauty-99",
+            },
+          ],
+          hobbies: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20art%20supplies%20and%20creative%20tools%20collection%20against%20studio%20background&width=1280&height=720&seq=31&orientation=landscape",
+              title: "Creative Arts Collection",
+              backlink: "https://www.bid4penny.com/categories/Hobbies-and-Toys-97",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20collectible%20toys%20and%20limited%20editions%20against%20display%20background&width=1280&height=720&seq=32&orientation=landscape",
+              title: "Collectible Treasures",
+              backlink: "https://www.bid4penny.com/categories/Hobbies-and-Toys-97",
+            },
+          ],
+          kitchen: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20kitchen%20appliances%20and%20cookware%20set%20against%20modern%20kitchen%20background&width=1280&height=720&seq=33&orientation=landscape",
+              title: "Premium Kitchen Set",
+              backlink: "https://www.bid4penny.com/categories/Kitchen-and-Dining-95",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20dining%20set%20and%20tableware%20collection%20against%20elegant%20background&width=1280&height=720&seq=34&orientation=landscape",
+              title: "Luxury Dining Collection",
+              backlink: "https://www.bid4penny.com/categories/Kitchen-and-Dining-95",
+            },
+          ],
+          luxury: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20watches%20and%20jewelry%20collection%20against%20premium%20dark%20background&width=1280&height=720&seq=35&orientation=landscape",
+              title: "Luxury Timepieces",
+              backlink: "https://www.bid4penny.com/categories/Luxury-89",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20designer%20handbags%20and%20accessories%20against%20elegant%20background&width=1280&height=720&seq=36&orientation=landscape",
+              title: "Designer Accessories",
+              backlink: "https://www.bid4penny.com/categories/Luxury-89",
+            },
+          ],
+          pet: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20pet%20food%20and%20nutrition%20products%20against%20clean%20background&width=1280&height=720&seq=37&orientation=landscape",
+              title: "Premium Pet Nutrition",
+              backlink: "https://www.bid4penny.com/categories/Pet-Food-and-Care-82",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20pet%20accessories%20and%20care%20products%20against%20modern%20background&width=1280&height=720&seq=38&orientation=landscape",
+              title: "Luxury Pet Care",
+              backlink: "https://www.bid4penny.com/categories/Pet-Food-and-Care-82",
+            },
+          ],
+          "real-estate": [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20modern%20house%20exterior%20with%20pool%20against%20sunset%20background&width=1280&height=720&seq=39&orientation=landscape",
+              title: "Luxury Residences",
+              backlink: "https://www.bid4penny.com/categories/Real-Estate-75",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20apartment%20interior%20with%20modern%20design%20against%20city%20view&width=1280&height=720&seq=40&orientation=landscape",
+              title: "Premium Properties",
+              backlink: "https://www.bid4penny.com/categories/Real-Estate-75",
+            },
+          ],
+          "secret-love": [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20romantic%20gift%20packages%20and%20surprise%20boxes%20against%20elegant%20background&width=1280&height=720&seq=41&orientation=landscape",
+              title: "Romantic Surprises",
+              backlink: "https://www.bid4penny.com/categories/Secret-Love-101",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20date%20night%20experiences%20and%20couple%20activities%20against%20romantic%20background&width=1280&height=720&seq=42&orientation=landscape",
+              title: "Special Moments",
+              backlink: "https://www.bid4penny.com/categories/Secret-Love-101",
+            },
+          ],
+          tickets: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20concert%20and%20festival%20tickets%20with%20VIP%20passes%20against%20event%20background&width=1280&height=720&seq=43&orientation=landscape",
+              title: "VIP Event Access",
+              backlink: "https://www.bid4penny.com/categories/Tickets-and-Events-103",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20exclusive%20sports%20event%20tickets%20and%20packages%20against%20stadium%20background&width=1280&height=720&seq=44&orientation=landscape",
+              title: "Sports Experiences",
+              backlink: "https://www.bid4penny.com/categories/Tickets-and-Events-103",
+            },
+          ],
+          travels: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20travel%20packages%20and%20vacation%20experiences%20against%20paradise%20beach%20background&width=1280&height=720&seq=45&orientation=landscape",
+              title: "Luxury Getaways",
+              backlink: "https://www.bid4penny.com/categories/Travels-and-Holidays-19",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20premium%20holiday%20packages%20and%20adventure%20tours%20against%20scenic%20background&width=1280&height=720&seq=46&orientation=landscape",
+              title: "Adventure Packages",
+              backlink: "https://www.bid4penny.com/categories/Travels-and-Holidays-19",
+            },
+          ],
+          vehicles: [
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20luxury%20cars%20and%20premium%20vehicles%20against%20modern%20showroom%20background&width=1280&height=720&seq=47&orientation=landscape",
+              title: "Luxury Vehicles",
+              backlink: "https://www.bid4penny.com/categories/Vehicles-5",
+            },
+            {
+              url: "https://readdy.ai/api/search-image?query=Professional%20photo%20of%20high-end%20motorcycles%20and%20exclusive%20models%20against%20studio%20background&width=1280&height=720&seq=48&orientation=landscape",
+              title: "Premium Motorcycles",
+              backlink: "https://www.bid4penny.com/categories/Vehicles-5",
+            },
+          ],
+        };
+
 let currentCategory = 'apple';
 let currentSlideIndex = 0;
 let slideInterval;
@@ -2223,9 +2445,11 @@ function createSlideElement(imageData) {
 const slide = document.createElement('div');
 slide.className = 'absolute inset-0 transition-opacity duration-500 opacity-0';
 slide.innerHTML = `
-<img src="${imageData.url}" alt="${imageData.title}" class="w-full h-full object-cover">
+<a href="${imageData.backlink}" target="_blank"> 
+  <img src="${imageData.url}" alt="${imageData.title}" class="w-full h-full object-cover">
 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
 <h3 class="text-white text-2xl font-semibold">${imageData.title}</h3>
+  </a>
 </div>
 `;
 return slide;
