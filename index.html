@@ -1192,7 +1192,7 @@ Tournaments and reward pools.
                   
                   <h3 class="text-lg font-semibold mt-5">Ecosystem &amp; Payments</h3>
                  </div>
-                <p class="text-gray-900 text-center text-sm ">
+                <p class="text-gray-900 md:text-center text-sm ">
                   $B4P is the primary currency used across the Bid4Penny platform. Users utilize it to bid on auctions, access premium features, and make seamless in-platform purchases. All transactions are facilitated using $B4P.
                 </p>
               </div>
@@ -1210,7 +1210,7 @@ Tournaments and reward pools.
                   
                   <h3 class="text-lg font-semibold mt-5">Staking &amp; Yield Farming</h3>
                 </div>
-                <p class="text-gray-900 text-sm text-center">
+                <p class="text-gray-900 text-sm md:text-center">
                   Token holders can stake their $B4P to earn passive rewards through our staking pools and participate in yield farming opportunities. This incentivizes long-term holding and contributes to supply scarcity.
                 </p>
               </div>
@@ -1225,7 +1225,7 @@ Tournaments and reward pools.
                   </div>
                   <h3 class="text-lg font-semibold mt-5">Governance &amp; DAO Participation</h3>
                 </div>
-                <p class="text-gray-900 text-sm text-center">
+                <p class="text-gray-900 text-sm md:text-center">
                   $B4P holders will have the power to influence key decisions within the platform through a decentralized governance model. From choosing new product categories to shaping reward mechanics, the community will have a voice.
                 </p>
               </div>
@@ -1239,7 +1239,7 @@ Tournaments and reward pools.
              
                   <h3 class="text-lg font-semibold mt-5">Auction Perks &amp; Boosts</h3>
                 </div>
-                <p class="text-gray-900 text-center text-sm">
+                <p class="text-gray-900 md:text-center text-sm">
                   Holding $B4P unlocks exclusive perks such as discounted bids, early access to premium auctions, and participation in lucky-draw style events.
                 </p>
               </div>
@@ -1253,7 +1253,7 @@ Tournaments and reward pools.
                  </div>
                   <h3 class="text-lg font-semibold mt-5">Loyalty Tiers &amp; Gamified Rewards</h3>
                 </div>
-                <p class="text-gray-900 text-center text-sm">
+                <p class="text-gray-900 md:text-center text-sm">
                   Users are rewarded based on the amount of $B4P they hold, unlocking loyalty levels (e.g., Bronze, Silver, Gold) that offer increasing platform benefits.
                 </p>
               </div>
@@ -2099,18 +2099,25 @@ Tournaments and reward pools.
 
     <script>
       const swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal', // Keep horizontal sliding
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 24,
-        loop: true,
+        direction: 'horizontal',
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  spaceBetween: 24,
+  loop: true,
+
+  // Smooth interaction
+  speed: 500, // smoother animation
+  resistanceRatio: 0.85, // gentle swipe resistance
+  longSwipesRatio: 0.3, // make short swipes count
+  followFinger: true, // real-time swipe feedback
+
+  // Make vertical gestures control horizontal slide
+  touchAngle: 90,
+  threshold: 5, // lower threshold improves response
     
+
         mousewheel: true,
-    
-        // Enable vertical gesture on mobile to trigger horizontal slide
-        touchAngle: 90, // interpret vertical swipe for horizontal swiper
-        threshold: 10,
-    
+
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
