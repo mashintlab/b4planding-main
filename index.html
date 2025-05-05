@@ -1747,8 +1747,8 @@ Tournaments and reward pools.
     container.innerHTML = roadmap.map((item, i) => {
       const isFuture = /\b2025|\b2026/.test(item.quarter);
       const wrapperClasses = i % 2 === 0
-        ? 'ml-12 md:ml-0 md:w-5/12 md:mr-auto'
-        : 'ml-12 md:ml-auto md:w-5/12';
+        ? ' md:ml-0 md:w-5/12 md:mr-auto'
+        : ' md:ml-auto md:w-5/12';
       const badgeBg = item.color === 'primary'
         ? 'bg-primary/10 text-primary'
         : item.color === 'yellow'
