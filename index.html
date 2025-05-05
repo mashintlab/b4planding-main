@@ -332,9 +332,20 @@
           </div>
         </div>
       </div>
+     
       <div
         class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"
-      ></div>
+      >
+      
+    </div>
+    <div class="scroll-btn">
+      <a href="#how-it-works"  >
+        <span>&RightAngleBracket;</span>
+        <span>&RightAngleBracket;</span>
+        <span>&RightAngleBracket;</span>
+      </a>
+    </div>
+ 
     </section>
     <!-- How It Works -->
     <section id="how-it-works" class="py-20 bg-white">
@@ -1158,7 +1169,7 @@ Tournaments and reward pools.
             use cases
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 ">
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-12 ">
           <div>
             <div
               class="neon-box-2 bg-white rounded-lg p-8 shadow-lg border border-gray-100"
@@ -1169,7 +1180,7 @@ Tournaments and reward pools.
               <!-- Constraining wrapper -->
         <div class="relative overflow-hidden">
           <!-- Swiper container with max width -->
-          <div class="swiper-container max-w-4xl mx-auto">
+          <div class="swiper-container max-w-8xl mx-auto">
             <div class="swiper-wrapper">
   
               <!-- Slide 1 -->
@@ -1181,7 +1192,7 @@ Tournaments and reward pools.
                   
                   <h3 class="text-lg font-semibold mt-5">Ecosystem &amp; Payments</h3>
                  </div>
-                <p class="text-gray-900 text-sm ">
+                <p class="text-gray-900 text-center text-sm ">
                   $B4P is the primary currency used across the Bid4Penny platform. Users utilize it to bid on auctions, access premium features, and make seamless in-platform purchases. All transactions are facilitated using $B4P.
                 </p>
               </div>
@@ -1199,7 +1210,7 @@ Tournaments and reward pools.
                   
                   <h3 class="text-lg font-semibold mt-5">Staking &amp; Yield Farming</h3>
                 </div>
-                <p class="text-gray-900 text-sm">
+                <p class="text-gray-900 text-sm text-center">
                   Token holders can stake their $B4P to earn passive rewards through our staking pools and participate in yield farming opportunities. This incentivizes long-term holding and contributes to supply scarcity.
                 </p>
               </div>
@@ -1214,7 +1225,7 @@ Tournaments and reward pools.
                   </div>
                   <h3 class="text-lg font-semibold mt-5">Governance &amp; DAO Participation</h3>
                 </div>
-                <p class="text-gray-900 text-sm">
+                <p class="text-gray-900 text-sm text-center">
                   $B4P holders will have the power to influence key decisions within the platform through a decentralized governance model. From choosing new product categories to shaping reward mechanics, the community will have a voice.
                 </p>
               </div>
@@ -1228,7 +1239,7 @@ Tournaments and reward pools.
              
                   <h3 class="text-lg font-semibold mt-5">Auction Perks &amp; Boosts</h3>
                 </div>
-                <p class="text-gray-900 text-sm">
+                <p class="text-gray-900 text-center text-sm">
                   Holding $B4P unlocks exclusive perks such as discounted bids, early access to premium auctions, and participation in lucky-draw style events.
                 </p>
               </div>
@@ -1242,7 +1253,7 @@ Tournaments and reward pools.
                  </div>
                   <h3 class="text-lg font-semibold mt-5">Loyalty Tiers &amp; Gamified Rewards</h3>
                 </div>
-                <p class="text-gray-900 text-sm">
+                <p class="text-gray-900 text-center text-sm">
                   Users are rewarded based on the amount of $B4P they hold, unlocking loyalty levels (e.g., Bronze, Silver, Gold) that offer increasing platform benefits.
                 </p>
               </div>
@@ -2086,22 +2097,26 @@ Tournaments and reward pools.
       });
     </script> -->
 
-<script>
-  const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 24,
-    loop: true,
-
-    // ← enable scrolling to switch slides
-    mousewheel: true,
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-</script>
+    <script>
+      const swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal', // Keep horizontal sliding
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 24,
+        loop: true,
+    
+        mousewheel: true,
+    
+        // Enable vertical gesture on mobile to trigger horizontal slide
+        touchAngle: 90, // interpret vertical swipe for horizontal swiper
+        threshold: 10,
+    
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
     <script>
@@ -2443,5 +2458,7 @@ document.querySelector('[data-category="apple"]').classList.remove('border-gray-
     sections.forEach(section => observer.observe(section));
   });
 </script>
+
+
   </body>
 </html>
