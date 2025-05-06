@@ -164,6 +164,7 @@ box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
 }
 
 
+
 .auction-card:hover {
 transform: translateY(-5px);
 box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
@@ -318,7 +319,15 @@ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   height: 170px; /* or any value that is enough to show the content */
 }
 
+.category-btn{
+  width: 200px;
+  height: 160px;
 
+}
+
+/* .swiper-slide{
+  width: 220px !important;
+} */
 /* animated down arrow */
 
 .scroll-btn {
@@ -354,6 +363,24 @@ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   animation-delay: 0.66s;
 }
 
+.slick-carousel {
+  margin: 0 auto;
+  max-width: 90%;  /* Ensure it's responsive */
+}
+
+.slick-slide {
+  margin: 0 5px; /* Adjust the margin between slides */
+  float: unset;
+  display: flex !important;
+  justify-content: center;
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;  /* Ensures vertical alignment */
+}
+
+
 @keyframes colors {
   0%,
   40%,
@@ -371,6 +398,8 @@ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   place-items: center;
   -webkit-place-items: center;
 }
+
+
 
 
 /* animated down arrow */

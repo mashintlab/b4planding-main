@@ -60,7 +60,10 @@
   rel="stylesheet"
   href="https://unpkg.com/swiper/swiper-bundle.min.css"
 />
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="bg-white">
@@ -1073,142 +1076,194 @@ Tournaments and reward pools.
   <p class="text-lg text-gray-600 max-w-2xl mx-auto">
   Browse our extensive collection of premium products across various categories
   </p>
+  
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-12">
-  <!-- Apple -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-apple-fill ri-2x text-gray-700"></i>
+  
+    <div class="mb-12">
+      <div class="slick-carousel">
+    <!-- Apple -->
+    <div class="swiper-slide">
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="apple">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-apple-fill ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Apple</span>
+        </button>
+    </div>
+      <!-- Bid Packs -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-coin-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Bid Packs</span>
+          </button>
+      </div>
+     
+      <!-- Console & Videogame -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-gamepad-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Console & Videogame</span>
+          </button>
+      </div>
+    
+      <!-- Crypto & Bitcoin -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-bitcoin-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Crypto & Bitcoin</span>
+          </button>
+      </div>
+      
+      <!-- Electronics & Computers -->
+    <div class="swiper-slide">
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-computer-line ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Electronics & Computers</span>
+        </button>
+    </div>
+      <!-- Fitness -->
+     <div class="swiper-slide">
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Fitness</span>
+        </button>
+     </div>
+      <!-- Gadgets -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-device-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Gadgets</span>
+          </button>
+      </div>
+      <!-- Garden & Tools -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-plant-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Garden & Tools</span>
+          </button>
+      </div>
+      <!-- Gift Card -->
+     <div class="swiper-slide">
+    
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gift-card">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-gift-2-line ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Gift Card</span>
+        </button>
+     </div>
+      <!-- Health & Beauty -->
+     <div class="swiper-slide">
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="health">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-hearts-line ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Health & Beauty</span>
+        </button>
+     </div>
+      <!-- Hobbies & Toys -->
+     <div class="swiper-slide">
+      <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="hobbies">
+        <div class="w-12 h-12 flex items-center justify-center mb-3">
+        <i class="ri-brush-line ri-2x text-gray-700"></i>
+        </div>
+        <span class="font-medium text-gray-900">Hobbies & Toys</span>
+        </button>
+     </div>
+      <!-- Kitchen & Dining -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="kitchen">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-restaurant-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Kitchen & Dining</span>
+          </button>
+      </div>
+      <!-- Luxury -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="luxury">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-vip-crown-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Luxury</span>
+          </button>
+      </div>
+      <!-- Pet Food & Care -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="pet">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-footprint-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Pet Food & Care</span>
+          </button>
+      </div>
+      <!-- Real Estate -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="real-estate">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-home-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Real Estate</span>
+          </button>
+      </div>
+      <!-- Secret Love -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="secret-love">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-heart-2-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Secret Love</span>
+          </button>
+      </div>
+      <!-- Tickets & Events -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="tickets">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-ticket-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Tickets & Events</span>
+          </button>
+      </div>
+      <!-- Travels & Holidays -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="travels">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-plane-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Travels & Holidays</span>
+          </button>
+      </div>
+      <!-- Vehicles -->
+      <div class="swiper-slide">
+        <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="vehicles">
+          <div class="w-12 h-12 flex items-center justify-center mb-3">
+          <i class="ri-car-line ri-2x text-gray-700"></i>
+          </div>
+          <span class="font-medium text-gray-900">Vehicles</span>
+          </button>
+      </div>
+      
+    </div>
+    <div >
+
+    </div>
+      
   </div>
-  <span class="font-medium text-gray-900">Apple</span>
-  </button>
-  <!-- Bid Packs -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="bid-packs">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-coin-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Bid Packs</span>
-  </button>
-  <!-- Console & Videogame -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="console">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-gamepad-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Console & Videogame</span>
-  </button>
-  <!-- Crypto & Bitcoin -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="crypto">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-bitcoin-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Crypto & Bitcoin</span>
-  </button>
-  <!-- Electronics & Computers -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="electronic">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-computer-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Electronics & Computers</span>
-  </button>
-  <!-- Fitness -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="fitness">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-heart-pulse-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Fitness</span>
-  </button>
-  <!-- Gadgets -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gadgets">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-device-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Gadgets</span>
-  </button>
-  <!-- Garden & Tools -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="garden">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-plant-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Garden & Tools</span>
-  </button>
-  <!-- Gift Card -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="gift-card">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-gift-2-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Gift Card</span>
-  </button>
-  <!-- Health & Beauty -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="health">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-hearts-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Health & Beauty</span>
-  </button>
-  <!-- Hobbies & Toys -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="hobbies">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-brush-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Hobbies & Toys</span>
-  </button>
-  <!-- Kitchen & Dining -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="kitchen">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-restaurant-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Kitchen & Dining</span>
-  </button>
-  <!-- Luxury -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="luxury">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-vip-crown-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Luxury</span>
-  </button>
-  <!-- Pet Food & Care -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="pet">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-footprint-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Pet Food & Care</span>
-  </button>
-  <!-- Real Estate -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="real-estate">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-home-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Real Estate</span>
-  </button>
-  <!-- Secret Love -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="secret-love">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-heart-2-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Secret Love</span>
-  </button>
-  <!-- Tickets & Events -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="tickets">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-ticket-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Tickets & Events</span>
-  </button>
-  <!-- Travels & Holidays -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="travels">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-plane-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Travels & Holidays</span>
-  </button>
-  <!-- Vehicles -->
-  <button class="category-btn bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col items-center" data-category="vehicles">
-  <div class="w-12 h-12 flex items-center justify-center mb-3">
-  <i class="ri-car-line ri-2x text-gray-700"></i>
-  </div>
-  <span class="font-medium text-gray-900">Vehicles</span>
-  </button>
-  </div>
+  
   <!-- Slideshow Container -->
   <div class="relative bg-white rounded-xl shadow-lg overflow-hidden">
   <div class="aspect-w-16 aspect-h-9">
@@ -2690,6 +2745,39 @@ document.querySelector('[data-category="apple"]').classList.remove('border-gray-
   });
 </script>
 
+<script>
+  $(document).ready(function(){
+    $('.slick-carousel').slick({
+      slidesToShow: 6,  
+      slidesToScroll: 1, 
+      autoplay: false,   
+      infinite: true,   
+      autoplaySpeed: 2000, 
+      centerMode: false, 
+      variableWidth: false, 
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,  
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,  
+          }
+        },
+        {
+          breakpoint: 1366,
+          settings: {
+            slidesToShow: 4,  
+          }
+        }
+      ]
+    });
+});
 
+</script>
   </body>
 </html>
