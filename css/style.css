@@ -399,7 +399,40 @@ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   -webkit-place-items: center;
 }
 
-
+.slick-button{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.slide-arrow{
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+}
+.prev-arrow{
+  left: -30px;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 15px solid #445da6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+.next-arrow{
+  right: -28px;
+  width: 0;
+  height: 0;
+  border-right: 0 solid transparent;
+  border-left: 15px solid #445da6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
 
 
 /* animated down arrow */
